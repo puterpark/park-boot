@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.badge {
+	width: 50px;
+	margin-top: 3px;
+	margin-right: 5px;
+	font-size: 100%;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+	display: none;
+	-webkit-appearance: none;
+}

@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 80
   servlet:
     encoding:
       charset: UTF-8
@@ -14,4 +14,20 @@ spring:
     url: ENC(bzY5u5OHuKNrxxHrUHykVZoatg7aShEW/Faof9U9hQLJMmkN7yBYmb9gSOmUriC6atiVqRCDcdC+ASiDCNL2rwuaRA55prz7euh739veJhXiqUvBSm7nU0CWWvbtGpbBCij/mH17HAU=)
     username: ENC(1KfohpyW0HfAykm1IJjpQQ==)
     password: ENC(fNw440KdGSPe5Pikh+6Ompb5zuIpZgUp)
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    static-path-pattern: /resources/**
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
 
