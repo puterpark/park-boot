@@ -1,21 +1,20 @@
 package us.puter.park.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import us.puter.park.domain.Menu;
+import us.puter.park.domain.entity.Menu;
 import us.puter.park.repository.MenuRepository;
 
 import java.util.List;
 
+@Service
 @Transactional
+@RequiredArgsConstructor
 public class MenuService {
 
 	private final MenuRepository menuRepository;
-
-	public MenuService(MenuRepository menuRepository) {
-		this.menuRepository = menuRepository;
-	}
 
 	public Model setModelFromMenu(Model model, String mode) {
 

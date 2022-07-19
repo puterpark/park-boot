@@ -8,15 +8,4 @@ import us.puter.park.service.MenuService;
 @Configuration
 public class SpringConfig {
 
-	private final MenuRepository menuRepository;
-
-	public SpringConfig(MenuRepository menuRepository) {
-		this.menuRepository = menuRepository;
-	}
-
-	@Bean
-	public MenuService menuService() {
-		return new MenuService(menuRepository);
-	}
-
 }

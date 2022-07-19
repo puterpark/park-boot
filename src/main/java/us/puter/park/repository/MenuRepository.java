@@ -1,13 +1,8 @@
 package us.puter.park.repository;
 
-import us.puter.park.domain.Menu;
+import org.springframework.data.jpa.repository.JpaRepository;
+import us.puter.park.domain.entity.Menu;
 
-import java.util.List;
-
-public interface MenuRepository {
-
-	long count();
-
-	List<Menu> findAll();
+public interface MenuRepository extends JpaRepository<Menu, Long>{
 
 }

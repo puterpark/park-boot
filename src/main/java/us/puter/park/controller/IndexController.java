@@ -14,16 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Controller
+@RequiredArgsConstructor
 public class IndexController {
 
 	private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
 	private final MenuService menuService;
-
-	@Autowired
-	public IndexController(MenuService menuService) {
-		this.menuService = menuService;
-	}
 
 	@GetMapping(value = "/")
 	public String index(Model model, HttpServletRequest req, HttpServletResponse res) throws IOException {
