@@ -31,3 +31,5 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQLDialect
 
+system:
+  title: PUTER.US

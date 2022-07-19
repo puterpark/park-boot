@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +22,12 @@ public class IndexController {
 
 	private final MenuService menuService;
 
+	@Value("${system.title}")
+	private String title;
+
 	@GetMapping(value = "/")
 	public String index(Model model, HttpServletRequest req, HttpServletResponse res) throws IOException {
 
-		String title = "PUTER.US";
 		model.addAttribute("title", title);
 		model.addAttribute("mode", "home");
 
@@ -33,4 +36,5 @@ public class IndexController {
 
 		return "pages/index/index";
 	}
+
 }
