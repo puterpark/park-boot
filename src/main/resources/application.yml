@@ -32,4 +32,9 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
 
 system:
+  # HTML : TITLE
   title: PUTER.US
+  # /tools/{mode} 호출 시, 아래 기술한 mode만 사용 가능 (구분자 : ;)
+  tools: week;month;filesize;unixtime;shortenurl;endecode;qrcode;predict;json
+  # QR Code 크기 (단위 : px)
+  qr-code-size: 250
