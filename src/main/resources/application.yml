@@ -38,3 +38,5 @@ system:
   tools: week;month;filesize;unixtime;shortenurl;endecode;qrcode;predict;json
   # QR Code 크기 (단위 : px)
   qr-code-size: 250
+  # shortenUri 길이
+  shorten-uri-length: 6
