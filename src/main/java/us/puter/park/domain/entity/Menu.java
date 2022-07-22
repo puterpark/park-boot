@@ -26,6 +26,9 @@ public class Menu {
 	@Column(name = "icon")
 	private String icon;
 
+	@Column(name = "useFlag")
+	private Long useFlag;
+
 	@Transient
 	private Integer activeFlag = 0;
 

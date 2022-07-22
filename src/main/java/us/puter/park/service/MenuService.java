@@ -18,9 +18,9 @@ public class MenuService {
 
 	public Model setModelFromMenu(Model model, String mode) {
 
-		long menuListCount = menuRepository.count();
+		long menuListCount = menuRepository.countMenuByUseFlag(1L);
 		if (menuListCount > 0) {
-			List<Menu> menuList = menuRepository.findAll();
+			List<Menu> menuList = menuRepository.findMenuByUseFlag(1L);
 
 			/*
 			 * mode에 값이 있을 때
