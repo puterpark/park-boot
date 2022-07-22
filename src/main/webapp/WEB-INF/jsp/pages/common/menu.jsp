@@ -37,7 +37,13 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link ripple " href="https://app.plex.tv" data-url="/">
+					<a class="nav-link ripple " href="https://jen.puter.us" data-url="/">
+						<i class="icon s-4 icon-package-variant"></i>
+						<span>jenkins</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link ripple " href="https://plex.puter.us" data-url="/">
 						<i class="icon s-4 icon-plex"></i>
 						<span>plex</span>
 					</a>

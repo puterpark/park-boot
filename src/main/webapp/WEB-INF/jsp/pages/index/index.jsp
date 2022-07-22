@@ -48,7 +48,18 @@
 												<div class="widget widget1 card">
 													<div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
 														<div class="sub-title h6 text-muted">&nbsp;</div>
-														<button type="button" class="btn btn-outline-secondary" onclick="goMenu('https://app.plex.tv')">
+														<button type="button" class="btn btn-outline-secondary" onclick="goMenu('https://jen.puter.us')">
+															<i class="icon s-4 btn-outline-secondary icon-package-variant"></i>
+															jenkins
+														</button>
+													</div>
+												</div>
+											</div>
+											<div class="col-6 col-sm-6 col-xl-3 p-3">
+												<div class="widget widget1 card">
+													<div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
+														<div class="sub-title h6 text-muted">&nbsp;</div>
+														<button type="button" class="btn btn-outline-secondary" onclick="goMenu('https://plex.puter.us')">
 															<i class="icon s-4 btn-outline-secondary icon-plex"></i>
 															plex
 														</button>
