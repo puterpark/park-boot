@@ -40,3 +40,9 @@ system:
   qr-code-size: 250
   # shortenUri 길이
   shorten-uri-length: 6
+  # predict API 설정
+  predict:
+    # URL
+    target-url: z9JamtJlX19reqCcwIEbmzTUKJOQi5P0ho3l7gy412iJuP2g24PNEo7dhizIG75s5fiJ11dQvTfszfmIoH6hjAvlcXRYbDx4
+    # TIMEOUT (단위 : ms)
+    timeout: 60000

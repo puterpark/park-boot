@@ -3,6 +3,7 @@ package us.puter.park.util;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import us.puter.park.config.JasyptConfig;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
@@ -257,6 +258,18 @@ public class Utility {
 		}
 
 		return sb.toString();
+	}
+
+	/**
+	 * Jasypt 복호화
+	 * 
+	 * @param encString
+	 * @return
+	 */
+	public static String decStringByJasypt(String encString) {
+		JasyptConfig jasyptConfig = new JasyptConfig();
+
+		return jasyptConfig.stringEncryptor().decrypt(encString);
 	}
 
 }

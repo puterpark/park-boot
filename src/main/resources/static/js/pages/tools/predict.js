@@ -26,7 +26,7 @@ function predict() {
 	loader(1);
 	
 	$.ajax({
-		url : './predict.json',
+		url : '/tools/predict',
 		type: 'post',
 		dataType: 'json',
 		data : {
