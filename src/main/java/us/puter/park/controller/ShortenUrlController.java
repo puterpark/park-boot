@@ -64,7 +64,7 @@ public class ShortenUrlController {
 	 * @param urlInfo
 	 * @return
 	 */
-	@PostMapping(value = "/tools/shortenurl_insert.json")
+	@PostMapping(value = "/tools/shorten-url")
 	public @ResponseBody Map<String, Object> shortenUrlInsert(HttpServletRequest req, HttpServletResponse res, ShortenUrl urlInfo) {
 
 		Map<String, Object> jsonMap = new HashMap<>();

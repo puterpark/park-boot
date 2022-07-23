@@ -25,7 +25,7 @@ function shorten() {
 	loader(1);
 	
 	$.ajax({
-		url : './shortenurl_insert.json',
+		url : '/tools/shorten-url',
 		type: 'post',
 		dataType: 'json',
 		data : {
