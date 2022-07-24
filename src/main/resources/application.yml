@@ -31,6 +31,22 @@ spring:
         show_sql: false
         format_sql: false
 
+logging:
+  level:
+    org.springframework.boot.SpringApplication: info
+    org.springframework.boot: error
+    org.springframework.web: error
+    org.springframework.security: off
+    org.hibernate.SQL: off
+    java.sql: error
+    jdbc: off
+    jdbc.sqlonly: info
+    jdbc.audit: off
+    jdbc.resultset: off
+    jdbc.sqltiming: error
+    jdbc.resultsettable: info
+    jdbc.connection: error
+
 system:
   # HTML : TITLE
   title: PUTER.US
