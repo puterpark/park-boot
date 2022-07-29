@@ -4,6 +4,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import us.puter.park.domain.entity.ShortenUrl;
+import us.puter.park.domain.entity.ShortenUrlInfo;
+import us.puter.park.repository.ShortenUrlInfoRepository;
 import us.puter.park.repository.ShortenUrlRepository;
 
 @Service
@@ -12,6 +14,8 @@ import us.puter.park.repository.ShortenUrlRepository;
 public class ShortenUrlService {
 
 	private final ShortenUrlRepository shortenUrlRepository;
+
+	private final ShortenUrlInfoRepository shortenUrlInfoRepository;
 
 	/**
 	 * 실제 URL로 짧은 URI 정보 추출
@@ -36,14 +40,39 @@ public class ShortenUrlService {
 	}
 
 	/**
-	 * 데이터 삽입
+	 * shortenUrl 데이터 삽입
 	 *
-	 * @param urlInfo
+	 * @param shortenUrl
 	 * @return
 	 */
-	public ShortenUrl doInsertShortenUrl(ShortenUrl urlInfo) {
+	public ShortenUrl doInsertShortenUrl(ShortenUrl shortenUrl) {
 
-		return shortenUrlRepository.save(urlInfo);
+		return shortenUrlRepository.save(shortenUrl);
+	}
+
+	/**
+	 * shortenUrl의 일자별 redirect 수 저장
+	 *
+	 * @param shortenUrlInfo
+	 * @return
+	 */
+	public void doInsertShortenUrlInfo(ShortenUrlInfo shortenUrlInfo) {
+
+		Long shortenUrlUid = shortenUrlInfo.getShortenUrlUid();
+		Long regDate = shortenUrlInfo.getRegDate();
+
+		// 값 존재 여부 확인
+		ShortenUrlInfo orgShortenUrlInfo = shortenUrlInfoRepository.findShortenUrlInfosByShortenUrlUidAndRegDate(shortenUrlUid, regDate);
+
+		if (orgShortenUrlInfo == null) {
+			// 새로 insert
+			shortenUrlInfoRepository.save(shortenUrlInfo);
+		} else {
+			// redirectCount의 값만 바꾼다.
+			Long redirectCount = shortenUrlInfo.getRedirectCount();
+			orgShortenUrlInfo.setRedirectCount(++redirectCount);
+			shortenUrlInfoRepository.save(orgShortenUrlInfo);
+		}
 	}
 
 }

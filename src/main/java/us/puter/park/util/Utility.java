@@ -109,6 +109,14 @@ public class Utility {
 		return format.format(new Date(time));
 	}
 
+	public static String getTimeYYYYMMDD(long time) {
+
+		String formatString = "yyyyMMdd";
+		SimpleDateFormat format = new SimpleDateFormat(formatString);
+
+		return format.format(new Date(time));
+	}
+
 	public static String getExtension(String fileName) {
 		if (fileName == null) {
 			return "etc";

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import us.puter.park.domain.entity.ShortenUrl;
+import us.puter.park.domain.entity.ShortenUrlInfo;
 import us.puter.park.service.ShortenUrlService;
 import us.puter.park.util.JsonUtil;
 import us.puter.park.util.Utility;
@@ -52,6 +53,15 @@ public class ShortenUrlController {
 			res.sendRedirect("/error/404");
 			return;
 		}
+
+		String today = Utility.getTimeYYYYMMDD(System.currentTimeMillis());
+		ShortenUrlInfo shortenUrlInfo = ShortenUrlInfo.builder()
+											.shortenUrlUid(shortenUrl.getShortenUrlUid())
+											.redirectCount(1L)
+											.regDate(Long.parseLong(today))
+											.build();
+		// 해당 shortenUrl의 일자별 redirect 수 저장
+		shortenUrlService.doInsertShortenUrlInfo(shortenUrlInfo);
 
 		res.sendRedirect(shortenUrl.getOriginalUrl());
 	}
