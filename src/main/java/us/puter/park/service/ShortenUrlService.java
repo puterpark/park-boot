@@ -69,7 +69,7 @@ public class ShortenUrlService {
 			shortenUrlInfoRepository.save(shortenUrlInfo);
 		} else {
 			// redirectCount의 값만 바꾼다.
-			Long redirectCount = shortenUrlInfo.getRedirectCount();
+			Long redirectCount = orgShortenUrlInfo.getRedirectCount();
 			orgShortenUrlInfo.setRedirectCount(++redirectCount);
 			shortenUrlInfoRepository.save(orgShortenUrlInfo);
 		}
