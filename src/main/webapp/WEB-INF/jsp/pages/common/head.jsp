@@ -62,11 +62,11 @@
 	<!-- Fuse Html -->
 	<script type="text/javascript" src="/resources/vendor/fuse-html/fuse-html.min.js"></script>
 	<!-- Main JS -->
-	<script type="text/javascript" src="/resources/js/main.js"></script>
+	<script type="text/javascript" src="/resources/js/main<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
 	<!-- Common JS -->
-	<script type="text/javascript" src="/resources/js/pages/common.js"></script>
+	<script type="text/javascript" src="/resources/js/pages/common<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
 	<!-- Loader JS -->
-	<script type="text/javascript" src="/resources/js/loader.js"></script>
+	<script type="text/javascript" src="/resources/js/loader<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
 	<!-- / JAVASCRIPT -->
 
 	<script>
