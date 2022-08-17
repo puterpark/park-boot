@@ -56,7 +56,7 @@
 																<br/>
 															</div>
 														</div>
-														<div class="row">
+														<div class="col-12 p-1" style="text-align: center;">
 															<%@ include file="../common/ad.jsp" %>
 														</div>
 													</div>
