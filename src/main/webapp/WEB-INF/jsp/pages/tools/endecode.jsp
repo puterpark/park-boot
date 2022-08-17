@@ -77,6 +77,9 @@
 																</div>
 															</div>
 														</div>
+														<div class="row">
+															<%@ include file="../common/ad.jsp" %>
+														</div>
 													</div>
 												</div>
 											</div>
