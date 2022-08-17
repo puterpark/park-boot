@@ -60,6 +60,9 @@
 												</div>
 											</div>
 											<div id="resultDiv" class="col-12 p-3 hidden"></div>
+											<div class="row">
+												<%@ include file="../common/ad.jsp" %>
+											</div>
 										</div>
 										<!-- / WIDGET GROUP -->
 									</div>

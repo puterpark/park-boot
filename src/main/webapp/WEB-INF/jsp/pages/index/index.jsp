@@ -82,7 +82,7 @@
 										</div>
 										<!-- / WIDGET GROUP -->
 									</div>
-									<div class="tab-pane fade show active p-3" aria-labelledby="home-tab">
+									<div class="p-3" style="text-align: center;">
 										<%@ include file="../common/ad.jsp" %>
 									</div>
 							</div>
