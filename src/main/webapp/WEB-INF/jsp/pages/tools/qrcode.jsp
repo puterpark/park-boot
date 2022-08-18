@@ -48,7 +48,7 @@
 															</div>
 														</div>
 														<div class="col-12 p-1" style="text-align: center;">
-															<%@ include file="../common/ad.jsp" %>
+															<%@ include file="../common/adfit.jsp" %>
 														</div>
 													</div>
 												</div>

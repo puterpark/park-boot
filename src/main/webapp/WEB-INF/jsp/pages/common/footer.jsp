@@ -23,6 +23,9 @@
 	}
 </script>
 
+<%-- kakao AdFit --%>
+<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+
 <div id="loader" class="loader hidden">
 	<div class="loader_wrap">
 		<img src="/resources/images/gear.gif" class="gear" />

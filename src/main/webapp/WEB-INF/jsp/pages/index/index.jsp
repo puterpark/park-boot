@@ -72,7 +72,7 @@
 										<!-- / WIDGET GROUP -->
 									</div>
 									<div class="col-12 p-3" style="text-align: center;">
-										<%@ include file="../common/ad.jsp" %>
+										<%@ include file="../common/adfit.jsp" %>
 									</div>
 							</div>
 							<!-- / CONTENT -->
