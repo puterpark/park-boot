@@ -8,13 +8,11 @@
 	<property name="LOG_FILE_NAME" value="park"/>
 	<!-- err log file name -->
 	<property name="ERR_LOG_FILE_NAME" value="err"/>
-	<!-- pattern -->
-	<property name="LOG_PATTERN" value="%highlight(%-5level) [%date] [%15.15thread] %cyan(%-40.40logger{36}:%line) - %msg%n"/>
 
 	<!-- Console Appender -->
 	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>${LOG_PATTERN}</pattern>
+			<pattern>%highlight(%-5level)[%date] [%15.15thread] %cyan(%-40.40logger{36}:%line) - %msg%n</pattern>
 		</encoder>
 	</appender>
 
@@ -22,7 +20,7 @@
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<!-- 출력패턴 설정-->
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>${LOG_PATTERN}</pattern>
+			<pattern>%-5level[%date] [%15.15thread] %-40.40logger{36}:%line - %msg%n</pattern>
 		</encoder>
 
 		<!-- Rolling 정책 -->
@@ -42,7 +40,7 @@
 			<onMismatch>DENY</onMismatch>
 		</filter>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>${LOG_PATTERN}</pattern>
+			<pattern>%-5level[%date] [%15.15thread] %-40.40logger{36}:%line - %msg%n</pattern>
 		</encoder>
 		<!-- Rolling 정책 -->
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
