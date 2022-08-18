@@ -6,7 +6,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <%-- kakao AdFit (728*90) --%>
-<div id="adfit-728">728
+<div id="adfit-728">
 	<ins class="kakao_ad_area" style="display:none;"
 		data-ad-unit    = "DAN-MWj9tTFZhnmHJDkj"
 		data-ad-width   = "728"
@@ -14,7 +14,7 @@
 </div>
 
 <%-- kakao AdFit (320*50) --%>
-<div id="adfit-320">320
+<div id="adfit-320">
 	<ins class="kakao_ad_area" style="display:none;"
 		data-ad-unit    = "DAN-AaSJlRVkpgNkrZjv"
 		data-ad-width   = "320"
