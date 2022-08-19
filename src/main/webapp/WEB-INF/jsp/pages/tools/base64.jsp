@@ -62,7 +62,7 @@
 													</div>
 												</div>
 											</div>
-											<div id="resultDiv" class="col-12 p-3 hidden"></div>
+											<div id="resultDiv" class="col-12 p-1 hidden"></div>
 										</div>
 										<!-- / WIDGET GROUP -->
 									</div>
