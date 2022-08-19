@@ -26,6 +26,9 @@
 									<div class="tab-pane fade show active p-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
 										<!-- WIDGET GROUP -->
 										<div class="widget-group row no-gutters">
+											<%@ include file="../common/adfit.jsp" %>
+										</div>
+										<div class="widget-group row no-gutters">
 											<!-- WIDGET 5 -->
 											<div class="col-12 p-3">
 												<c:choose>
