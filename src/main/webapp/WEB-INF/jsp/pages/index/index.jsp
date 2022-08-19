@@ -30,13 +30,13 @@
 									</li>
 								</ul>
 								<div class="tab-content">
-									<div class="tab-pane fade show active p-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+									<div class="tab-pane fade show active p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
 										<!-- WIDGET GROUP -->
-										<div class="widget-group row no-gutters">
+										<div class="widget-group row no-gutters adfit">
 											<%@ include file="../common/adfit.jsp" %>
 										</div>
 										<div class="widget-group row no-gutters">
-											<div class="col-6 col-sm-6 col-xl-3 p-3">
+											<div class="col-6 col-sm-6 col-xl-3 p-1">
 												<div class="widget widget1 card">
 													<div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
 														<div class="sub-title h6 text-muted">&nbsp;</div>
@@ -47,7 +47,7 @@
 													</div>
 												</div>
 											</div>
-											<div class="col-6 col-sm-6 col-xl-3 p-3">
+											<div class="col-6 col-sm-6 col-xl-3 p-1">
 												<div class="widget widget1 card">
 													<div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
 														<div class="sub-title h6 text-muted">&nbsp;</div>
@@ -59,7 +59,7 @@
 												</div>
 											</div>
 											<c:forEach var="m" items="${menuList}">
-												<div class="col-6 col-sm-6 col-xl-3 p-3">
+												<div class="col-6 col-sm-6 col-xl-3 p-1">
 													<div class="widget widget1 card">
 														<div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
 															<div class="sub-title h6 text-muted">&nbsp;</div>

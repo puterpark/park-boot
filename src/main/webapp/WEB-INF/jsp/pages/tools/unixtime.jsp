@@ -28,13 +28,13 @@
 							<div class="page-content">
 								<%@ include file="../common/top_menu.jsp" %>
 								<div class="tab-content">
-									<div class="tab-pane fade show active p-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+									<div class="tab-pane fade show active p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
 										<!-- WIDGET GROUP -->
-										<div class="widget-group row no-gutters">
+										<div class="widget-group row no-gutters adfit">
 											<%@ include file="../common/adfit.jsp" %>
 										</div>
 										<div class="widget-group row no-gutters">
-											<div class="col-12 p-3">
+											<div class="col-12 p-1">
 												<div class="widget widget5 card">
 													<div class="widget-content p-4">
 														<div class="row">
@@ -55,14 +55,14 @@
 																</h4>
 																<h5 style='color:red;'>
 																	&gt; 입력 필드에 숫자를 입력하면 동적으로 변환
-																</h5>	
+																</h5>
 																<br/>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-											<div id="resultDiv" class="col-12 p-3 hidden"></div>
+											<div id="resultDiv" class="col-12 p-1 hidden"></div>
 										</div>
 										<!-- / WIDGET GROUP -->
 									</div>

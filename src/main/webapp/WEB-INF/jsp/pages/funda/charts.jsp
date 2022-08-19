@@ -23,14 +23,14 @@
 							<div class="page-content">
 								<%@ include file="../common/top_menu.jsp" %>
 								<div class="tab-content">
-									<div class="tab-pane fade show active p-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
+									<div class="tab-pane fade show active p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
 										<!-- WIDGET GROUP -->
-										<div class="widget-group row no-gutters">
+										<div class="widget-group row no-gutters adfit">
 											<%@ include file="../common/adfit.jsp" %>
 										</div>
 										<div class="widget-group row no-gutters">
 											<!-- WIDGET 5 -->
-											<div class="col-12 p-3">
+											<div class="col-12 p-1">
 												<c:choose>
 													<c:when test="${fundaListSize < 1}">
 														<div id="error-404" class="d-flex flex-column align-items-center justify-content-center">
