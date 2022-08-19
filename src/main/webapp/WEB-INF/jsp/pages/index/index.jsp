@@ -33,6 +33,9 @@
 									<div class="tab-pane fade show active p-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
 										<!-- WIDGET GROUP -->
 										<div class="widget-group row no-gutters">
+											<%@ include file="../common/adfit.jsp" %>
+										</div>
+										<div class="widget-group row no-gutters">
 											<div class="col-6 col-sm-6 col-xl-3 p-3">
 												<div class="widget widget1 card">
 													<div class="widget-content pt-2 pb-8 d-flex flex-column align-items-center justify-content-center">
@@ -71,12 +74,9 @@
 										</div>
 										<!-- / WIDGET GROUP -->
 									</div>
-									<div class="col-12 p-3" style="text-align: center;">
-										<%@ include file="../common/adfit.jsp" %>
-									</div>
-							</div>
+								</div>
 							<!-- / CONTENT -->
-						</div>
+							</div>
 						</div>
 						<script type="text/javascript" src="/resources/js/apps/dashboard/project.js"></script>
 					</div>

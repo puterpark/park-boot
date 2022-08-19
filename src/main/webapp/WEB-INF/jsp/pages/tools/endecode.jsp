@@ -29,6 +29,9 @@
 									<div class="tab-pane fade show active p-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
 										<!-- WIDGET GROUP -->
 										<div class="widget-group row no-gutters">
+											<%@ include file="../common/adfit.jsp" %>
+										</div>
+										<div class="widget-group row no-gutters">
 											<div class="col-12 p-3">
 												<div class="widget widget5 card">
 													<div class="widget-content p-4">
@@ -76,9 +79,6 @@
 																	<textarea class="form-control" id="unicodeDecode" rows="3" onclick="javascript:copy(this);"></textarea>
 																</div>
 															</div>
-														</div>
-														<div class="col-12 p-1" style="text-align: center;">
-															<%@ include file="../common/adfit.jsp" %>
 														</div>
 													</div>
 												</div>
