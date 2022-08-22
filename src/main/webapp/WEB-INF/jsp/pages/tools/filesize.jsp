@@ -41,27 +41,27 @@
 															<div class="col-12 col-lg-6">
 																<div class="input-group input-group-sm mb-3">
 																	<span class="badge badge-secondary">Byte</span>
-																	<input type="text" id="byte" class="form-control" onkeydown="return number(event);" onkeyup="convert(0);">
+																	<input type="text" id="byte" class="form-control" onkeydown="return validate(event);" onkeyup="convert(0);">
 																</div>
 																
 																<div class="input-group input-group-sm mb-3">
 																	<span class="badge badge-info">KB</span>
-																	<input type="text" id="kb" class="form-control" onkeydown="return number(event);" onkeyup="convert(1);">
+																	<input type="text" id="kb" class="form-control" onkeydown="return validate(event);" onkeyup="convert(1);">
 																</div>
 																
 																<div class="input-group input-group-sm mb-3">
 																	<span class="badge badge-warning">MB</span>
-																	<input type="text" id="mb" class="form-control" onkeydown="return number(event);" onkeyup="convert(2);">
+																	<input type="text" id="mb" class="form-control" onkeydown="return validate(event);" onkeyup="convert(2);">
 																</div>
 																
 																<div class="input-group input-group-sm mb-3">
 																	<span class="badge badge-success">GB</span>
-																	<input type="text" id="gb" class="form-control" onkeydown="return number(event);" onkeyup="convert(3);">
+																	<input type="text" id="gb" class="form-control" onkeydown="return validate(event);" onkeyup="convert(3);">
 																</div>
 																
 																<div class="input-group input-group-sm mb-3">
 																	<span class="badge badge-primary">TB</span>
-																	<input type="text" id="tb" class="form-control" onkeydown="return number(event);" onkeyup="convert(4);">
+																	<input type="text" id="tb" class="form-control" onkeydown="return validate(event);" onkeyup="convert(4);">
 																</div>
 															</div>
 															<div class="col-12 col-lg-6">
