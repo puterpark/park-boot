@@ -20,13 +20,13 @@
 	<link rel="apple-touch-icon" sizes="120x120" href="/resources/favicon/apple-touch-icon-120x120.png">
 	<link rel="apple-touch-icon" sizes="144x144" href="/resources/favicon/apple-touch-icon-144x144.png">
 	<link rel="apple-touch-icon" sizes="152x152" href="/resources/favicon/apple-touch-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/resources/favicon/apple-touch-icon-180x180.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/resources/favicon/apple-touch-icon">
 	<link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/resources/favicon/site.webmanifest">
-	<link rel="mask-icon" href="/resources/favicon/safari-pinned-tab.svg" color="#2196f3">
-	<meta name="msapplication-TileColor" content="#2196f3">
-	<meta name="theme-color" content="#2196f3">
+	<link rel="mask-icon" href="/resources/favicon/safari-pinned-tab.svg" color="#3993ef">
+	<meta name="msapplication-TileColor" content="#3993ef">
+	<meta name="theme-color" content="#3993ef">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic" rel="stylesheet">
 
