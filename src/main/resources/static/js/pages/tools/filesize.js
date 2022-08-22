@@ -1,5 +1,5 @@
 function convert(mode) {
-	var orgSize;
+	let orgSize;
 
 	switch(mode) {
 		case 0:
@@ -41,14 +41,16 @@ function convert(mode) {
 }
 
 function square(n) {
-	var size = 1024;
+	const size = 1024;
 	return Math.pow(size, n);
 }
 
-function number(e) {
-	var charCode = (e.which) ? e.which : e.keyCode;
+function validate(e) {
+	const charCode = (e.which) ? e.which : e.keyCode;
 
-	if ((charCode > 47 && charCode < 58) || (charCode > 95 && charCode < 106) || charCode == 8 || charCode == 65 || charCode == 67 || charCode == 86 || charCode == 88) {
+	if ((charCode > 47 && charCode < 58) || (charCode > 95 && charCode < 106)
+		|| charCode == 8
+		|| charCode == 65 || charCode == 67 || charCode == 86 || charCode == 88) {
 		return true;
 	}
 

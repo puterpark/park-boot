@@ -41,12 +41,12 @@
 															<div class="col-12 col-lg-6">
 																<div class="input-group input-group-sm mb-3">
 																	<span class="badge badge-secondary">UNIX</span>
-																	<input type="text" id="unix" class="form-control" onkeydown="return number(event);" onkeyup="convert(0);">
+																	<input type="text" id="unix" class="form-control" onkeydown="return validate(event);" onkeyup="convert(0);">
 																</div>
 															
 																<div class="input-group input-group-sm mb-3">
 																	<span class="badge badge-warning">REAL</span>
-																	<input type="datetime-local" class="form-control"  value="" id="real" step="1" onkeydown="return number(event);" onkeyup="convert(1);"/>
+																	<input type="datetime-local" class="form-control" value="" id="real" step="1" onkeydown="return validate(event);" onkeyup="convert(1);"/>
 																</div>
 															</div>
 															<div class="col-12 col-lg-6">
