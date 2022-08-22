@@ -1,3 +1,9 @@
+$(function() {
+	const currentTime = new Date().getTime() / 1000;
+	$('#unix').val(Math.floor(currentTime));
+	convert(0);
+});
+
 function convert(mode) {
 	let value;
 
