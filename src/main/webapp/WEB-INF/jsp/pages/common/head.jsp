@@ -20,7 +20,18 @@
 	<link rel="apple-touch-icon" sizes="120x120" href="/resources/favicon/apple-touch-icon-120x120.png">
 	<link rel="apple-touch-icon" sizes="144x144" href="/resources/favicon/apple-touch-icon-144x144.png">
 	<link rel="apple-touch-icon" sizes="152x152" href="/resources/favicon/apple-touch-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/resources/favicon/apple-touch-icon">
+	<link rel="apple-touch-icon" sizes="180x180" href="/resources/favicon/apple-touch-icon-180x180.png">
+	<link rel="apple-touch-icon" href="/resources/favicon/apple-touch-icon">
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/resources/favicon/apple-touch-icon-57x57-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/resources/favicon/apple-touch-icon-60x60-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/resources/favicon/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/resources/favicon/apple-touch-icon-76x76-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/resources/favicon/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/resources/favicon/apple-touch-icon-120x120-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/resources/favicon/apple-touch-icon-144x144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/resources/favicon/apple-touch-icon-152x152-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/resources/favicon/apple-touch-icon-180x180-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="/resources/favicon/apple-touch-icon-precomposed.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/resources/favicon/site.webmanifest">
