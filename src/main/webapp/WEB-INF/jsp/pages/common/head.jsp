@@ -11,7 +11,14 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
+	<%-- favicon 설정 --%>
+	<link rel="apple-touch-icon" sizes="180x180" href="/resources/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/resources/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/resources/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/resources/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/resources/favicon/safari-pinned-tab.svg" color="#2196f3">
+	<meta name="msapplication-TileColor" content="#2196f3">
+	<meta name="theme-color" content="#2196f3">
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic" rel="stylesheet">
 

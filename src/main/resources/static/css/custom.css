@@ -33,3 +33,8 @@
 .adfit {
 	padding-bottom: 3px;
 }
+
+#icon-gear {
+	width: 32px;
+	border-radius: 10%;
+}
