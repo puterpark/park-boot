@@ -10,7 +10,9 @@
 		<div class="aside-content bg-primary-700 text-auto">
 			<div class="aside-toolbar">
 				<div class="logo">
-					<span class="logo-icon">P</span>
+					<span class="logo-icon" style="line-height: 0px !important;">
+						<img src="/resources/favicon/apple-touch-icon.png" id="icon-gear" />
+					</span>
 					<span class="logo-text">${title}</span>
 				</div>
 				<button id="toggle-fold-aside-button" type="button" class="btn btn-icon d-none d-lg-block" data-fuse-aside-toggle-fold>
