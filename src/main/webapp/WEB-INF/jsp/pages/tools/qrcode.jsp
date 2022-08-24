@@ -11,7 +11,7 @@
 	<%@ include file="../common/head.jsp" %>
 	<script type="text/javascript" src="/resources/js/mousetrap.min.js"></script>
 	<script type="text/javascript" src="/resources/js/sweetalert.min.js"></script>
-	<script type="text/javascript" src="/resources/js/pages/tools/qrcode.min.js"></script>
+	<script type="text/javascript" src="/resources/js/QRCode.min.js"></script>
 </head>
 <body class="layout layout-vertical layout-left-navigation layout-below-toolbar">
 	<main>
@@ -68,5 +68,5 @@
 	<%@ include file="../common/footer.jsp" %>
 </body>
 <input type="hidden" id="qrCodeSize" value="${qrCodeSize}" />
-<script type="text/javascript" src="/resources/js/pages/tools/qrcode.js"></script>
+<script type="text/javascript" src="/resources/js/pages/tools/qrcode<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
 </html>
