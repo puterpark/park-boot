@@ -37,26 +37,23 @@
 													<div class="widget-content p-4">
 														<div class="row">
 															<div class="col-12 col-lg-6">
-																<span class="badge badge-danger">시작일</span>
+																<span class="badge badge-secondary">시작일</span>
 																<div class="form-group">
-																	<textarea class="form-control" id="textarea" rows="3"></textarea>
-																	<label for="textarea">여기에 입력하세요.</label>
+																	<input type="date" id="startDate" class="form-control" />
 																</div>
-																<span class="badge badge-danger">기준일</span>
+																<span class="badge badge-warning">기준일</span>
 																<div class="form-group">
-																	<textarea class="form-control" id="textarea" rows="3"></textarea>
-																	<label for="textarea">여기에 입력하세요.</label>
+																	<input type="date" id="baseDate" class="form-control" />
 																</div>
-																<span class="badge badge-danger">종료일</span>
+																<span class="badge badge-success">종료일</span>
 																<div class="form-group">
-																	<textarea class="form-control" id="textarea" rows="3"></textarea>
-																	<label for="textarea">여기에 입력하세요.</label>
+																	<input type="date" id="endDate" class="form-control" />
 																</div>
 															</div>
 															<div class="col-12 col-lg-6">
 																<span class="badge badge-secondary">결과</span>
 																<div class="form-group">
-																	<div id="qrCode"></div>
+																	<div id="resultDiv"></div>
 																</div>
 															</div>
 														</div>
