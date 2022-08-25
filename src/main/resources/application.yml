@@ -56,7 +56,7 @@ system:
   # HTML : TITLE
   title: PUTER.US
   # /tools/{mode} 호출 시, 아래 기술한 mode만 사용 가능 (구분자 : ;)
-  tools: week;month;filesize;unixtime;shortenurl;endecode;qrcode;predict;json
+  tools: week;month;filesize;unixtime;shortenurl;endecode;qrcode;predict;json;progress
   # QR Code 크기 (단위 : px)
   qr-code-size: 250
   # shortenUri 길이
