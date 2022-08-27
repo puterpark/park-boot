@@ -23,7 +23,8 @@ var qrCode = new QRCode($qrCode, {
 
 function makeCode() {
 	var val = $('#textarea').val().trim();
-	
+
+	$('#result-badge').removeClass('hidden');
 	$qrCode.setAttribute('class', 'hidden');
 	
 	if (val.length > 0) {

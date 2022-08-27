@@ -44,7 +44,7 @@
 																</div>
 															</div>
 															<div class="col-12 col-lg-6">
-																<span class="badge badge-secondary">QR Code</span>
+																<span id="result-badge" class="badge badge-secondary hidden">QR Code</span>
 																<div class="form-group">
 																	<div id="qrCode"></div>
 																</div>

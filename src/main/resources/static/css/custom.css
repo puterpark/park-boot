@@ -46,3 +46,7 @@
 .progress .progress-bar {
 	height: 100% !important;
 }
+
+.alert {
+	margin-top: 10px !important;
+}

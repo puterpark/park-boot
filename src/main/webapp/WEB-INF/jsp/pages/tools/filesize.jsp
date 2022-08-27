@@ -65,13 +65,10 @@
 																</div>
 															</div>
 															<div class="col-12 col-lg-6">
-																<h4 style='color:red;'>
-																	file size 변환
-																</h4>
-																<h5 style='color:red;'>
-																	&gt; 입력 필드에 숫자를 입력하면 동적으로 변환
-																</h5>
-																<br/>
+																<div class="alert alert-success" role="alert">
+																	<h4 class="alert-heading">file size 변환</h4>
+																	<p>&gt; 입력 필드에 숫자를 입력하면 동적으로 변환</p>
+																</div>
 															</div>
 														</div>
 													</div>
