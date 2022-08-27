@@ -51,7 +51,7 @@
 																</div>
 															</div>
 															<div class="col-12 col-lg-6">
-																<span class="badge badge-secondary">결과</span>
+																<span id="result-badge" class="badge badge-secondary hidden">결과</span>
 																<div class="form-group">
 																	<div id="resultDiv"></div>
 																</div>

@@ -38,3 +38,11 @@
 	width: 32px;
 	border-radius: 10%;
 }
+
+.progress {
+	height: 40px !important;
+}
+
+.progress .progress-bar {
+	height: 100% !important;
+}
