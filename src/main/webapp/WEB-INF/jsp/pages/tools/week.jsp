@@ -44,23 +44,27 @@
 																</div>
 															</div>
 															<div class="col-12 col-lg-6">
-																<h4>
-																	예시와 같이 작성 후,<br/>convert 버튼 클릭 or Ctrl + Enter<br/>
-																	중복된 상세사항은 삭제 및 공수를 계산<br/>
-																	<font style='color:red;'>(구분자는 " / ")</font>
-																</h4>
-																한국가스기술공사<br/>
-																> 산출물 작성 / 0.9375<br/>
-																> 추가요구사항 개발 / 1<br/>
-																> apache & tomcat 연동 테스트 / 0.875<br/>
-																> 산출물 작성 / 0.125<br/>
-																> 추가요구사항 개발 및 반영 / 0.5<br/>
-																> apache 설치 및 연동 / 0.5<br/>
-																> 주소록 이관 분석 / 0.5<br/>
-																MISC<br/>
-																> 주간회의 / 0.0625<br/>
-																휴가<br/>
-																> 오후반차 (12.13) / 0.5
+																<div class="alert alert-success" role="alert">
+																	<h5 class="alert-heading">
+																		예시와 같이 작성 후,<br/>convert 버튼 클릭 or Ctrl + Enter<br/>
+																		중복된 상세사항은 삭제 및 공수를 계산<br/>
+																		<font style='color:red;'>(구분자는 " / ")</font>
+																	</h5>
+																	<p>
+																		한국가스기술공사<br/>
+																		> 산출물 작성 / 0.9375<br/>
+																		> 추가요구사항 개발 / 1<br/>
+																		> apache & tomcat 연동 테스트 / 0.875<br/>
+																		> 산출물 작성 / 0.125<br/>
+																		> 추가요구사항 개발 및 반영 / 0.5<br/>
+																		> apache 설치 및 연동 / 0.5<br/>
+																		> 주소록 이관 분석 / 0.5<br/>
+																		MISC<br/>
+																		> 주간회의 / 0.0625<br/>
+																		휴가<br/>
+																		> 오후반차 (12.13) / 0.5
+																	</p>
+																</div>
 															</div>
 														</div>
 													</div>
