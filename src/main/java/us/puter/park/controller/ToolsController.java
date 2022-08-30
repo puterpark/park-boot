@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import us.puter.park.service.MenuService;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class ToolsController {
 
 		if (!flag) {
 			logger.info("No mapping found for HTTP request with URI [{" + req.getRemoteHost() + "} " + req.getRequestURI() + "] in DispatcherServlet with name 'servlet'");
-			return "redircet:/error";
+			return "redirect:/error/404";
 		}
 
 		model.addAttribute("title", title);

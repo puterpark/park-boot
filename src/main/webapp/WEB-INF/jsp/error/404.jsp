@@ -9,10 +9,10 @@
 <html>
 <head>
 	<title>${title}</title>
+	<%@ include file="../pages/common/favicon.jsp" %>
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700italic,700,900,900italic" rel="stylesheet">
 	<!-- Main CSS -->
 	<link type="text/css" rel="stylesheet" href="/resources/css/main.css">
-	<link rel="shortcut icon" type="image/x-icon" href="/resources/favicon.ico" />
 </head>
 <body class="layout layout-vertical layout-left-navigation layout-below-toolbar">
 	<main>
