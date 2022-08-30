@@ -21,10 +21,10 @@ public class CustomErrorController implements ErrorController {
 
 		Object status = req.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
+		model.addAttribute("title", title);
+
 		if (status != null) {
 			int statusCode = Integer.valueOf(status.toString());
-
-			model.addAttribute("title", title);
 
 			if (statusCode == HttpStatus.NOT_FOUND.value()) {
 				return "error/404";
