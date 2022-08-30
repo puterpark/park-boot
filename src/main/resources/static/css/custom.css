@@ -39,6 +39,14 @@
 	border-radius: 10%;
 }
 
+.progress {
+	height: 40px !important;
+}
+
+.progress .progress-bar {
+	height: 100% !important;
+}
+
 .alert {
 	margin-top: 10px !important;
 }
