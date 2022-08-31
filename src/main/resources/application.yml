@@ -7,6 +7,28 @@ server:
     encoding:
       charset: UTF-8
 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: live
+
+# access log : 운영 환경에서만 사용
+server:
+  tomcat:
+    basedir: .
+    accesslog:
+      enabled: true
+      directory: ./logs
+      prefix: access
+      suffix: .log
+      file-date-format: _yyyy-MM-dd
+      pattern: '%h %l %u [%{yyyy-MM-dd HH:mm:ss,SSS}t] "%r" %s %b %D %{User-Agent}i'
+      max-days: 14
+
+---
+
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor
