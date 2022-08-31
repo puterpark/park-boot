@@ -24,8 +24,10 @@ server:
       prefix: access
       suffix: .log
       file-date-format: _yyyy-MM-dd
-      pattern: '%h %l %u [%{yyyy-MM-dd HH:mm:ss,SSS}t] "%r" %s %b %D %{User-Agent}i'
+      pattern: '%{X-Forwarded-For}i %l %u [%{yyyy-MM-dd HH:mm:ss,SSS}t] "%r" %s %b %D %{User-Agent}i'
       max-days: 14
+    remoteip:
+      remote-ip-header: X-Forwarded-For
 
 ---
 
