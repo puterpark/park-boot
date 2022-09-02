@@ -100,7 +100,7 @@ function convert() {
 		resultDiv +=			"투입공수 : <input type='text' id='resource2' onclick='javascript:copy(this);' value='" + resource2 + "' />";
 		resultDiv +=			"<div id='result2' class='form-group' style='display: flex;'></div>";
 	} else {
-		resultDiv +=			"<h4 id='copy'></h4>";
+		resultDiv +=			"<div class='alert alert-success' role='alert' id='copy'></div>";
 	}
 	resultDiv +=			"</div>";
 	resultDiv +=		"</div>";
@@ -112,7 +112,7 @@ function convert() {
 	if (result2.trim().length > 0) {
 		$('#result2').empty().append("<textarea class='form-control' id='output2' rows='15' onclick='javascript:copy(this);'>"+ result2 +"</textarea>");
 	} else {
-		$('#copy').empty().append('결과를 클릭하면 복사됩니다.');
+		$('#copy').empty().append("<h5 class='alert-heading'>결과를 클릭하면 복사됩니다.</h5>");
 	}
 	$('#resultDiv').removeClass('hidden');
 
