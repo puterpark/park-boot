@@ -69,9 +69,9 @@ function convert() {
 		}
 	}
 
-	$('#resultDiv').empty().append("투입공수 : "+ resource +"<div class='widget widget5 card'><div class='widget-content p-4'><div class='row'><div class='col-12 col-lg-6'><div id='result' class='form-group' style='display: flex;'></div></div><div class='col-12 col-lg-6'><h4 id='copy'></h4></div></div></div></div>");
+	$('#resultDiv').empty().append("투입공수 : "+ resource +"<div class='widget widget5 card'><div class='widget-content p-4'><div class='row'><div class='col-12 col-lg-6'><div id='result' class='form-group' style='display: flex;'></div></div><div class='col-12 col-lg-6' id='copy'></div></div></div></div>");
 	$('#result').empty().append("<textarea class='form-control' id='output' rows='15' onclick='javascript:copy();'>"+ result +"</textarea>");
-	$('#copy').empty().append('결과를 클릭하면 복사됩니다.');
+	$('#copy').empty().append("<div class='alert alert-success' role='alert'><h5 class='alert-heading'>결과를 클릭하면 복사됩니다.</h5></div>");
 	$('#resultDiv').removeClass('hidden');
 
 	document.getElementById('resultDiv').scrollIntoView();
