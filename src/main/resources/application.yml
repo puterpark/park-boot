@@ -59,6 +59,10 @@ spring:
         dialect: org.hibernate.dialect.MySQLInnoDBDialect
         show_sql: false
         format_sql: false
+  redis:
+    host: u+EFyB9LbyW6IspU6f3kXd/s+VHJuPDS
+    port: 16379
+    password: ZzGoQcFA9kaT5/EWRkRh5McIVbljl01e
 
 logging:
   level:

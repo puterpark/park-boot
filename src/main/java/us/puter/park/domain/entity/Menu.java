@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity(name = "menu")
 @Getter
 @Setter
-public class Menu {
+public class Menu implements Serializable {
 
 	@Id
 	@Column(name = "menuUid")

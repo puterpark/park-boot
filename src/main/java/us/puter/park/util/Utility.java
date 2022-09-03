@@ -269,14 +269,22 @@ public class Utility {
 	}
 
 	/**
+	 * Jasypt 암호화
+	 * @param plainString
+	 * @return 암호화된 값
+	 */
+	public static String encStringByJasypt(String plainString) {
+		JasyptConfig jasyptConfig = new JasyptConfig();
+		return jasyptConfig.stringEncryptor().encrypt(plainString);
+	}
+
+	/**
 	 * Jasypt 복호화
-	 * 
 	 * @param encString
-	 * @return
+	 * @return 복호화된 값
 	 */
 	public static String decStringByJasypt(String encString) {
 		JasyptConfig jasyptConfig = new JasyptConfig();
-
 		return jasyptConfig.stringEncryptor().decrypt(encString);
 	}
 
