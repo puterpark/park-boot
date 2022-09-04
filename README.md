@@ -11,22 +11,16 @@
 6. unixtime 변환
 7. shorten url
 8. qr code 생성기
-9. 문장 감성분석기 (with. lucaseo[https://github.com/lucaseo])
+9. 문장 감성분석기 (with. [lucaseo](https://github.com/lucaseo))
 10. json beautify/minify
 11. progress (날짜 기반 진척률 확인)
 
 ---
-```
-openjdk 11
-
-spring boot 2.7
-
-jpa
-
-javascript
-
-mariadb 10.2
-
-embed tomcat 9
-```
+* `openjdk 11`  
+* `spring boot 2.7`  
+* `jpa`  
+* `javascript`  
+* `mariadb 10.2`  
+* `embed tomcat 9`  
+* `redis 6`  
 ---
