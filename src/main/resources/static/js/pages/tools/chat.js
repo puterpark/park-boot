@@ -31,11 +31,11 @@ function sendMsg() {
 
 function setWebSocketUrl() {
 	let webSocketUrl = ''
-		, webSocketProtocol = window.location.protocol == 'https' ? 'wss' : 'ws';
+		, webSocketProtocol = window.location.protocol == 'https:' ? 'wss' : 'ws';
 
 	webSocketUrl = webSocketProtocol + '://' + window.location.hostname;
 
-	if (window.location.port != '80' || window.location.port != 443) {
+	if (window.location.port != '') {
 		webSocketUrl += ':' + window.location.port
 	}
 
