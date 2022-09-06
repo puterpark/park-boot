@@ -1,7 +1,6 @@
 package us.puter.park.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -13,7 +12,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import us.puter.park.util.Utility;
 
 @Configuration
-@EnableCaching
 public class RedisConfig {
 
 	@Value("${spring.redis.host}")
