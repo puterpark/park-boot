@@ -1,4 +1,4 @@
-const socket = new WebSocket('ws://' + window.location.hostname + ':' + window.location.port + '/test/websocket');
+const socket = new WebSocket('wss://' + window.location.hostname + ':' + window.location.port + '/test/websocket');
 
 socket.onopen = function (e) {
 	console.log('open server.');
