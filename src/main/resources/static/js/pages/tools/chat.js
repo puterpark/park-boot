@@ -13,6 +13,9 @@ function enterCheck() {
 
 function sendMsg() {
 	const content = $('#original').val();
+	if (content.length == 0) {
+		return;
+	}
 	socket.send(nickname + ' : ' + content);
 	$('#original').val('');
 }
@@ -27,7 +30,7 @@ function setWebSocketUrl() {
 		webSocketUrl += ':' + window.location.port
 	}
 
-	webSocketUrl += '/ws/chat';
+	webSocketUrl += '/ws/chat/' + nickname;
 
 	return webSocketUrl;
 }
