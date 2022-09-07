@@ -37,14 +37,14 @@ public class WebSocketController extends Socket {
 	public void close(Session session, @PathParam("nickname") String nickname) {
 		String sessionId = session.getId();
 		SESSION_MAP.remove(sessionId);
-		broadCast("(퇴장) " + nickname);
+		broadCast("<span class='badge badge-danger'>[" + nickname + "]님이 퇴장했습니다.</span>");
 		logger.info("webSocket session removed. id[" + sessionId + "], nickname[" + nickname + "], totalCnt[" + SESSION_MAP.size() + "]");
 	}
 
 	private void broadCast(String msg) {
 		for (String key : SESSION_MAP.keySet()) {
 			try {
-				SESSION_MAP.get(key).getBasicRemote().sendText("[" + Utility.getTimeHHMMSS(Utility.getTimeMillis()) + "] " + msg + "|#|" + SESSION_MAP.size());
+				SESSION_MAP.get(key).getBasicRemote().sendText("<span class='badge badge-dark'>" + Utility.getTimeHHMMSS(Utility.getTimeMillis()) + "</span> " + msg + "|#|" + SESSION_MAP.size());
 			} catch (IOException e) {
 				logger.error("webSocket error occurred.", e);
 			}

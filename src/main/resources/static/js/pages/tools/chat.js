@@ -12,12 +12,13 @@ function enterCheck() {
 }
 
 function sendMsg() {
-	const content = $('#original').val();
-	if (content.length == 0) {
+	const msgEl = $('#msg')
+		, content = msgEl.val();
+	if (content.length == 0 || content.length > 255) {
 		return;
 	}
-	socket.send(nickname + ' : ' + content);
-	$('#original').val('');
+	socket.send('[' + nickname + '] : ' + content);
+	msgEl.val('');
 }
 
 function setWebSocketUrl() {
@@ -35,13 +36,11 @@ function setWebSocketUrl() {
 	return webSocketUrl;
 }
 
-function setWebSocket(isReopen) {
+function setWebSocket() {
 	socket = new WebSocket(setWebSocketUrl());
 
 	socket.onopen = function (e) {
-		if (!isReopen) {
-			socket.send('(입장) ' + nickname);
-		}
+		socket.send('<span class="badge badge-success">[' + nickname + ']님이 입장했습니다.</span>');
 	};
 
 	socket.onerror = function (e) {
@@ -56,7 +55,7 @@ function setWebSocket(isReopen) {
 		$('#totalCnt').html(totalCnt);
 
 		if (msg.indexOf(nickname) > -1) {
-			msg = '<p><b>' + msg +'</b></p>';
+			msg = '<p><b>' + msg + '</b></p>';
 		} else {
 			msg = '<p>' + msg +'</p>';
 		}
@@ -64,7 +63,7 @@ function setWebSocket(isReopen) {
 	}
 
 	socket.onclose = function (e) {
-		setWebSocket(true);
+		setNickname();
 	}
 }
 
@@ -72,7 +71,7 @@ function setNickname() {
 	swal('닉네임을 입력해주세요.', {
 		content: 'input',
 	}).then((value) => {
-		if (value == null || value == 'null' || value == '') {
+		if (value == null || value == 'null' || value == '' || value.length > 10) {
 			setNickname();
 		} else {
 			nickname = value;

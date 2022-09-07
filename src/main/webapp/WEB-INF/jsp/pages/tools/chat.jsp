@@ -42,11 +42,11 @@
 																</span>&nbsp;
 																<span class="badge badge-secondary" id="nickname">익명</span>
 																<div class="form-group">
-																	<label for="original" class="sr-only">입력하세요.</label>
-																	<input type="text" class="form-control form-control-lg" id="original" placeholder="입력하세요." onkeydown="javaScript:enterCheck();">
+																	<label for="msg" class="sr-only">입력하세요.</label>
+																	<input type="text" class="form-control form-control-lg" id="msg" placeholder="입력하세요." onkeydown="javaScript:enterCheck();">
 																</div>
 															</div>
-															<div class="col-12 col-lg-6">
+															<div class="col-12">
 																<div class="form-group" id="msgDiv"></div>
 															</div>
 														</div>
