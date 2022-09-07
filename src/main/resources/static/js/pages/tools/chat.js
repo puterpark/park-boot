@@ -32,11 +32,13 @@ function setWebSocketUrl() {
 	return webSocketUrl;
 }
 
-function setWebSocket() {
+function setWebSocket(isReopen) {
 	socket = new WebSocket(setWebSocketUrl());
 
 	socket.onopen = function (e) {
-		socket.send(nickname + ' 입장!');
+		if (!isReopen) {
+			socket.send('(입장) ' + nickname);
+		}
 	};
 
 	socket.onerror = function (e) {
@@ -44,8 +46,11 @@ function setWebSocket() {
 	}
 
 	socket.onmessage = function (e) {
-		const msgDiv = $('#msgDiv');
-		let msg = e.data;
+		const msgDiv = $('#msgDiv')
+			, totalCnt = e.data.split("|#|")[1];
+		let msg = e.data.split("|#|")[0];
+
+		$('#totalCnt').html(totalCnt);
 
 		if (msg.indexOf(nickname) > -1) {
 			msg = '<p><b>' + msg +'</b></p>';
@@ -56,7 +61,7 @@ function setWebSocket() {
 	}
 
 	socket.onclose = function (e) {
-		setWebSocket();
+		setWebSocket(true);
 	}
 }
 
@@ -68,6 +73,7 @@ function setNickname() {
 			setNickname();
 		} else {
 			nickname = value;
+			$('#nickname').html(nickname);
 			setWebSocket();
 		}
 	});
