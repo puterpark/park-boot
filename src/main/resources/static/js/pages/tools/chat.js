@@ -36,7 +36,6 @@ function setWebSocket() {
 	socket = new WebSocket(setWebSocketUrl());
 
 	socket.onopen = function (e) {
-		console.log('open server.');
 		socket.send(nickname + ' 입장!');
 	};
 
@@ -57,7 +56,7 @@ function setWebSocket() {
 	}
 
 	socket.onclose = function (e) {
-		console.log('close server.');
+		setWebSocket();
 	}
 }
 
