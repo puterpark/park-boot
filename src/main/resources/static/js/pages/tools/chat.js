@@ -1,21 +1,9 @@
-let socket = new WebSocket(setWebSocketUrl());
+let socket
+	, nickname = '익명';
 
-socket.onopen = function (e) {
-	console.log('open server.');
-};
-
-socket.onerror = function (e) {
-	console.log(e);
-}
-
-socket.onmessage = function (e) {
-	const msgDiv = $('#msgDiv');
-	msgDiv.prepend('<p>' + e.data +'</p>')
-}
-
-socket.onclose = function (e) {
-	console.log('close server.');
-}
+$(function() {
+	setNickname();
+});
 
 function enterCheck() {
 	if (event.keyCode == 13) {
@@ -25,7 +13,7 @@ function enterCheck() {
 
 function sendMsg() {
 	const content = $('#original').val();
-	socket.send(content);
+	socket.send(nickname + ' : ' + content);
 	$('#original').val('');
 }
 
@@ -44,3 +32,44 @@ function setWebSocketUrl() {
 	return webSocketUrl;
 }
 
+function setWebSocket() {
+	socket = new WebSocket(setWebSocketUrl());
+
+	socket.onopen = function (e) {
+		console.log('open server.');
+		socket.send(nickname + ' 입장!');
+	};
+
+	socket.onerror = function (e) {
+		console.log(e);
+	}
+
+	socket.onmessage = function (e) {
+		const msgDiv = $('#msgDiv');
+		let msg = e.data;
+
+		if (msg.indexOf(nickname) > -1) {
+			msg = '<p><b>' + msg +'</b></p>';
+		} else {
+			msg = '<p>' + msg +'</p>';
+		}
+		msgDiv.prepend(msg);
+	}
+
+	socket.onclose = function (e) {
+		console.log('close server.');
+	}
+}
+
+function setNickname() {
+	swal('닉네임을 입력해주세요.', {
+		content: 'input',
+	}).then((value) => {
+		if (value == null || value == 'null' || value == '') {
+			setNickname();
+		} else {
+			nickname = value;
+			setWebSocket();
+		}
+	});
+}

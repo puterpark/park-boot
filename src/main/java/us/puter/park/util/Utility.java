@@ -109,6 +109,14 @@ public class Utility {
 		return format.format(new Date(time));
 	}
 
+	public static String getTimeHHMMSS(long time) {
+
+		String formatString = "HH:mm:ss";
+		SimpleDateFormat format = new SimpleDateFormat(formatString);
+
+		return format.format(new Date(time));
+	}
+
 	public static String getTimeYYYYMMDDHHMMSS(long time) {
 
 		String formatString = "yyyy.MM.dd HH:mm:ss";

@@ -35,7 +35,7 @@ public class WebSocketController extends Socket {
 	public void getMsg(String msg) {
 		for (String key : SESSION_MAP.keySet()) {
 			try {
-				SESSION_MAP.get(key).getBasicRemote().sendText("[" + Utility.getTimeYYYYMMDDHHMMSS(Utility.getTimeMillis()) + "] " + msg);
+				SESSION_MAP.get(key).getBasicRemote().sendText("[" + Utility.getTimeHHMMSS(Utility.getTimeMillis()) + "] " + msg);
 			} catch (IOException e) {
 				logger.error("webSocket error occurred.", e);
 			}
