@@ -13,7 +13,7 @@ function enterCheck() {
 
 function sendMsg() {
 	const msgEl = $('#msg')
-		, content = msgEl.val();
+		, content = msgEl.val().trim();
 	if (content.length == 0 || content.length > 255) {
 		return;
 	}
@@ -75,7 +75,7 @@ function setNickname(title) {
 		content: 'input',
 	}).then((value) => {
 		const regex = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
-
+		value = value.trim();
 		if (value == null || value == 'null' || value == '' || value.length > 10 || !regex.test(value)) {
 			setNickname('사용할 수 없습니다.\n다시 입력해주세요.');
 		} else {
