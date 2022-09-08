@@ -304,4 +304,13 @@ public class Utility {
 		return jasyptConfig.stringEncryptor().decrypt(encString);
 	}
 
+	/**
+	 * HTML 태그 제거
+	 * @param html
+	 * @return
+	 */
+	public static String removeHtmlTag(String html) {
+		return html.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
+	}
+
 }

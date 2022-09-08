@@ -40,7 +40,6 @@ function setWebSocket() {
 	socket = new WebSocket(setWebSocketUrl());
 
 	socket.onopen = function (e) {
-		socket.send('<span class="badge badge-success">[' + nickname + ']님이 입장했습니다.</span>');
 	};
 
 	socket.onerror = function (e) {
@@ -63,16 +62,22 @@ function setWebSocket() {
 	}
 
 	socket.onclose = function (e) {
-		setNickname();
+		setNickname('연결이 끊겼습니다.\n닉네임을 입력해주세요.');
 	}
 }
 
-function setNickname() {
-	swal('닉네임을 입력해주세요.', {
+function setNickname(title) {
+	if (title == null || title == 'null' || title == '' || title.length == 0) {
+		title = '닉네임을 입력해주세요.';
+	}
+
+	swal(title, {
 		content: 'input',
 	}).then((value) => {
-		if (value == null || value == 'null' || value == '' || value.length > 10) {
-			setNickname();
+		const regex = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
+
+		if (value == null || value == 'null' || value == '' || value.length > 10 || !regex.test(value)) {
+			setNickname('사용할 수 없습니다.\n다시 입력해주세요.');
 		} else {
 			nickname = value;
 			$('#nickname').html(nickname);
