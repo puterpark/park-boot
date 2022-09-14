@@ -78,7 +78,7 @@ public class WebSocketController extends Socket {
 
 		for (String key : SESSION_MAP.keySet()) {
 			try {
-				SESSION_MAP.get(key).getBasicRemote().sendText("<span class='badge badge-dark'>" + Utility.getTimeHHMMSS(currentTime) + "</span> " + msg + "|#|" + SESSION_MAP.size());
+				SESSION_MAP.get(key).getBasicRemote().sendText("<span class='badge badge-dark'>" + Utility.getTimeHHMMSS(currentTime) + "</span> " + msg + "|#|" + SESSION_MAP.size() + "|#|" + nickname);
 			} catch (IOException e) {
 				logger.error("webSocket error occurred.", e);
 			}

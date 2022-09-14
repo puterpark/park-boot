@@ -48,12 +48,13 @@ function setWebSocket() {
 
 	socket.onmessage = function (e) {
 		const msgDiv = $('#msgDiv')
-			, totalCnt = e.data.split("|#|")[1];
+			, totalCnt = e.data.split("|#|")[1]
+			, serverNickname = e.data.split("|#|")[2];
 		let msg = e.data.split("|#|")[0];
 
 		$('#totalCnt').html(totalCnt);
 
-		if (msg.indexOf(nickname) > -1) {
+		if (serverNickname === nickname) {
 			msg = '<p><b>' + msg + '</b></p>';
 		} else {
 			msg = '<p>' + msg +'</p>';
