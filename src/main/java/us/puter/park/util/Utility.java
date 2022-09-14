@@ -109,6 +109,14 @@ public class Utility {
 		return format.format(new Date(time));
 	}
 
+	public static String getTimeHHMMSS(long time) {
+
+		String formatString = "HH:mm:ss";
+		SimpleDateFormat format = new SimpleDateFormat(formatString);
+
+		return format.format(new Date(time));
+	}
+
 	public static String getTimeYYYYMMDDHHMMSS(long time) {
 
 		String formatString = "yyyy.MM.dd HH:mm:ss";
@@ -294,6 +302,15 @@ public class Utility {
 	public static String decStringByJasypt(String encString) {
 		JasyptConfig jasyptConfig = new JasyptConfig();
 		return jasyptConfig.stringEncryptor().decrypt(encString);
+	}
+
+	/**
+	 * HTML 태그 제거
+	 * @param html
+	 * @return
+	 */
+	public static String removeHtmlTag(String html) {
+		return html.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
 	}
 
 }

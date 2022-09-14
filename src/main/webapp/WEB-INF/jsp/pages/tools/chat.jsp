@@ -36,13 +36,20 @@
 												<div class="widget widget5 card">
 													<div class="widget-content p-4">
 														<div class="row">
-															<div class="col-12">
-																<span class="badge badge-danger">입력</span>
-																<div class="form-group">
-																	<input type="text" class="form-control form-control-lg" id="original" placeholder="입력하세요." onkeydown="javaScript:enterCheck();">
+															<div class="col-12" style="margin-bottom: -30px;">
+																<span class="badge badge-warning">
+																	<span id="totalCnt">0</span>名
+																</span>&nbsp;
+																<span class="badge badge-secondary" id="nickname">익명</span>
+																<div class="form-group" style="text-align: right;">
+																	<label for="msg" class="sr-only">입력하세요.</label>
+																	<input type="text" class="form-control form-control-lg" id="msg" placeholder="입력하세요." onkeydown="enterCheck();">
+																	<button type="submit" class="btn btn-secondary" onclick="sendMsg();" style="min-width: 1rem;">
+																		<i class="icon s-4 icon-send"></i>
+																	</button>
 																</div>
 															</div>
-															<div class="col-12 col-lg-6">
+															<div class="col-12">
 																<div class="form-group" id="msgDiv"></div>
 															</div>
 														</div>
