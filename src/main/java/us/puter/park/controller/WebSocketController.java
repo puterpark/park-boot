@@ -26,12 +26,22 @@ public class WebSocketController extends Socket {
 
 	private static final Map<String, Session> SESSION_MAP = new HashMap<>();
 
+	private static final Map<String, String> NICKNAME_MAP = new HashMap<>();
+
 	private final ChatService chatService;
 
 	@OnOpen
 	public void open(Session session, @PathParam("nickname") String nickname) throws Exception {
+
+		if (NICKNAME_MAP.get(nickname) != null) {
+			// 중복되는 닉네임일 경우 세션을 닫아서 닉네임을 다시 받게 함.
+			session.close();
+			return;
+		}
+
 		String sessionId = session.getId();
 		SESSION_MAP.put(sessionId, session);
+		NICKNAME_MAP.put(nickname, sessionId);
 		broadCast("<span class='badge badge-success'>[" + nickname + "]님이 입장했습니다.</span>", "notice", 0);
 		logger.info("webSocket session added. id[" + sessionId + "], nickname[" + nickname + "], totalCnt[" + SESSION_MAP.size() + "]");
 	}
@@ -43,8 +53,16 @@ public class WebSocketController extends Socket {
 
 	@OnClose
 	public void close(Session session, @PathParam("nickname") String nickname) {
+
 		String sessionId = session.getId();
+
+		if (NICKNAME_MAP.get(nickname) != null && SESSION_MAP.get(sessionId) == null) {
+			// 닉네임이 중복되고 세션ID가 등록되어 있지 않으면 세션을 종료한다.
+			return;
+		}
+
 		SESSION_MAP.remove(sessionId);
+		NICKNAME_MAP.remove(nickname);
 		broadCast("<span class='badge badge-danger'>[" + nickname + "]님이 퇴장했습니다.</span>", "notice", 0);
 		logger.info("webSocket session removed. id[" + sessionId + "], nickname[" + nickname + "], totalCnt[" + SESSION_MAP.size() + "]");
 	}
