@@ -1,8 +1,7 @@
 package us.puter.park.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import us.puter.park.config.ServerEndpointConfig;
 import us.puter.park.domain.entity.Chat;
@@ -17,12 +16,11 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 @ServerEndpoint(value = "/ws/chat/{nickname}", configurator = ServerEndpointConfig.class)
 public class WebSocketController extends Socket {
-
-	private static final Logger logger = LoggerFactory.getLogger(WebSocketController.class);
 
 	private static final Map<String, Session> SESSION_MAP = new HashMap<>();
 
@@ -43,7 +41,7 @@ public class WebSocketController extends Socket {
 		SESSION_MAP.put(sessionId, session);
 		NICKNAME_MAP.put(nickname, sessionId);
 		broadCast("<span class='badge badge-success'>[" + nickname + "]님이 입장했습니다.</span>", "notice", 0);
-		logger.info("webSocket session added. id[" + sessionId + "], nickname[" + nickname + "], totalCnt[" + SESSION_MAP.size() + "]");
+		log.info("webSocket session added. id[" + sessionId + "], nickname[" + nickname + "], totalCnt[" + SESSION_MAP.size() + "]");
 	}
 
 	@OnMessage
@@ -64,7 +62,7 @@ public class WebSocketController extends Socket {
 		SESSION_MAP.remove(sessionId);
 		NICKNAME_MAP.remove(nickname);
 		broadCast("<span class='badge badge-danger'>[" + nickname + "]님이 퇴장했습니다.</span>", "notice", 0);
-		logger.info("webSocket session removed. id[" + sessionId + "], nickname[" + nickname + "], totalCnt[" + SESSION_MAP.size() + "]");
+		log.info("webSocket session removed. id[" + sessionId + "], nickname[" + nickname + "], totalCnt[" + SESSION_MAP.size() + "]");
 	}
 
 	/**
@@ -80,7 +78,7 @@ public class WebSocketController extends Socket {
 			try {
 				SESSION_MAP.get(key).getBasicRemote().sendText("<span class='badge badge-dark'>" + Utility.getTimeHHMMSS(currentTime) + "</span> " + msg + "|#|" + SESSION_MAP.size() + "|#|" + nickname);
 			} catch (IOException e) {
-				logger.error("webSocket error occurred.", e);
+				log.error("webSocket error occurred.", e);
 			}
 		}
 
@@ -98,7 +96,7 @@ public class WebSocketController extends Socket {
 					.build();
 			chatService.doInsertChat(chat);
 		} catch (Exception e) {
-			logger.error("occurred error during insert db. [" + nickname +  "/" + msg + "]");
+			log.error("occurred error during insert db. [" + nickname +  "/" + msg + "]");
 		}
 	}
 

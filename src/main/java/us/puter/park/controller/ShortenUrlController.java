@@ -1,8 +1,7 @@
 package us.puter.park.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,11 +21,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class ShortenUrlController {
-
-	private static final Logger logger = LoggerFactory.getLogger(ShortenUrlController.class);
 
 	private final ShortenUrlService shortenUrlService;
 
@@ -49,7 +47,7 @@ public class ShortenUrlController {
 
 		// shortenUri와 매핑되는 originalUrl이 없을 경우 404 페이지로 이동
 		if (shortenUrl == null) {
-			logger.info("No mapping found for Shorten Url with shortenUri[" + shortenUri + "]");
+			log.info("No mapping found for Shorten Url with shortenUri[" + shortenUri + "]");
 			res.sendRedirect("/error/404");
 			return;
 		}

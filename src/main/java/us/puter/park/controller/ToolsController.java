@@ -1,8 +1,7 @@
 package us.puter.park.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,16 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import us.puter.park.service.MenuService;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class ToolsController {
-
-	private static final Logger logger = LoggerFactory.getLogger(ToolsController.class);
 
 	private final MenuService menuService;
 
@@ -49,7 +46,7 @@ public class ToolsController {
 		}
 
 		if (!flag) {
-			logger.info("No mapping found for HTTP request with URI [{" + req.getRemoteHost() + "} " + req.getRequestURI() + "] in DispatcherServlet with name 'servlet'");
+			log.info("No mapping found for HTTP request with URI [{" + req.getRemoteHost() + "} " + req.getRequestURI() + "] in DispatcherServlet with name 'servlet'");
 			return "redirect:/error/404";
 		}
 
