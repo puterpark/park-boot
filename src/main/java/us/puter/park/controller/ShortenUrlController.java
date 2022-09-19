@@ -5,10 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import us.puter.park.domain.entity.ShortenUrl;
 import us.puter.park.domain.entity.ShortenUrlInfo;
 import us.puter.park.service.ShortenUrlService;
@@ -69,20 +66,19 @@ public class ShortenUrlController {
 	 *
 	 * @param req
 	 * @param res
-	 * @param urlInfo
+	 * @param originalUrl
 	 * @return
 	 */
 	@PostMapping(value = "/tools/shorten-url")
-	public @ResponseBody Map<String, Object> shortenUrlInsert(HttpServletRequest req, HttpServletResponse res, ShortenUrl urlInfo) {
+	public @ResponseBody Map<String, Object> shortenUrlInsert(HttpServletRequest req, HttpServletResponse res, @RequestParam String originalUrl) {
 
 		Map<String, Object> jsonMap = new HashMap<>();
 		jsonMap.put(JsonUtil.RESULT, JsonUtil.FAILURE);
 
 		String shortenUri = "";
-		String originalUrl = urlInfo.getOriginalUrl();
 
 		// 입력한 originalUrl의 중복 확인
-		urlInfo = shortenUrlService.getShortenUriByOriginalUrl(originalUrl);
+		ShortenUrl urlInfo = shortenUrlService.getShortenUriByOriginalUrl(originalUrl);
 
 		if (urlInfo != null) {
 			// 중복일 경우 기존에 생성된 shortenUri 사용
