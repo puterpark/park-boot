@@ -5,7 +5,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity(name = "menu")
+@Entity
+@Table(name = "menu")
 @Getter
 @Setter
 public class Menu {

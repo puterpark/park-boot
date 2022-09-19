@@ -7,7 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity(name = "shortenurl")
+@Entity
+@Table(name = "shortenurl")
 @Getter
 @Setter
 @RequiredArgsConstructor

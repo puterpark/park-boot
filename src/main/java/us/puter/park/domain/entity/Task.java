@@ -8,7 +8,8 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
-@Entity(name = "task")
+@Entity
+@Table(name = "task")
 @Getter
 @Setter
 @RequiredArgsConstructor
