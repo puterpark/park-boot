@@ -80,6 +80,11 @@ logging:
     jdbc.resultsettable: info
     jdbc.connection: error
 
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    path: /admin/api-doc
+
 system:
   # HTML : TITLE
   title: PUTER.US
