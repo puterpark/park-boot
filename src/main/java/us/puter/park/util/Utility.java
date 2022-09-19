@@ -1,8 +1,7 @@
 package us.puter.park.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import us.puter.park.config.JasyptConfig;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,9 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Enumeration;
 
+@Slf4j
 public class Utility {
-
-	protected static final Logger logger = LoggerFactory.getLogger(Utility.class);
 
 	private Utility() {
 
@@ -178,7 +176,7 @@ public class Utility {
 				}
 			}
 		} catch (SocketException e) {
-			logger.error(e.getMessage(), e);
+			log.error(e.getMessage(), e);
 
 			ip = "127.0.0.1";
 		}
