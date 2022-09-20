@@ -2,7 +2,7 @@ package us.puter.park.domain.entity;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity(name = "shortenurl_info")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class ShortenUrlInfo {
 
 	@Id
@@ -18,8 +18,9 @@ public class ShortenUrlInfo {
 	@Column(name = "shortenUrlInfoUid")
 	private Long shortenUrlInfoUid;
 
-	@Column(name = "shortenUrlUid")
-	private Long shortenUrlUid;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "shortenUrlUid")
+	private ShortenUrl shortenUrl;
 
 	@Column(name = "redirectCount")
 	private Long redirectCount;
@@ -28,9 +29,8 @@ public class ShortenUrlInfo {
 	private Long regDate;
 
 	@Builder
-	public ShortenUrlInfo(Long shortenUrlInfoUid, Long shortenUrlUid, Long redirectCount, Long regDate) {
-		this.shortenUrlInfoUid = shortenUrlInfoUid;
-		this.shortenUrlUid = shortenUrlUid;
+	public ShortenUrlInfo(ShortenUrl shortenUrl, Long redirectCount, Long regDate) {
+		this.shortenUrl = shortenUrl;
 		this.redirectCount = redirectCount;
 		this.regDate = regDate;
 	}
