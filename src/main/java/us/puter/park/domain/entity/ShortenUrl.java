@@ -2,7 +2,7 @@ package us.puter.park.domain.entity;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "shortenurl")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class ShortenUrl {
 
 	@Id
@@ -29,8 +29,7 @@ public class ShortenUrl {
 	private Long regDate;
 
 	@Builder
-	public ShortenUrl(Long shortenUrlUid, String originalUrl, String shortenUri, Long regDate) {
-		this.shortenUrlUid = shortenUrlUid;
+	public ShortenUrl(String originalUrl, String shortenUri, Long regDate) {
 		this.originalUrl = originalUrl;
 		this.shortenUri = shortenUri;
 		this.regDate = regDate;

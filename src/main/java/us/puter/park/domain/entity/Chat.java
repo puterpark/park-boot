@@ -2,15 +2,16 @@ package us.puter.park.domain.entity;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity(name = "chat")
+@Entity
+@Table(name = "chat")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class Chat {
 
 	@Id
@@ -28,8 +29,7 @@ public class Chat {
 	private Long regDate;
 
 	@Builder
-	public Chat(Long chatUid, String nickname, String msg, Long regDate) {
-		this.chatUid = chatUid;
+	public Chat(String nickname, String msg, Long regDate) {
 		this.nickname = nickname;
 		this.msg = msg;
 		this.regDate = regDate;

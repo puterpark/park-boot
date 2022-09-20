@@ -2,7 +2,7 @@ package us.puter.park.domain.entity;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Table(name = "task")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 @DynamicUpdate
 public class Task {
 
@@ -37,8 +37,7 @@ public class Task {
 	private Long endDate;
 
 	@Builder
-	public Task(Long taskUid, String taskName, Long isUse, Long isAlive, Long startDate, Long endDate) {
-		this.taskUid = taskUid;
+	public Task(String taskName, Long isUse, Long isAlive, Long startDate, Long endDate) {
 		this.taskName = taskName;
 		this.isUse = isUse;
 		this.isAlive = isAlive;
