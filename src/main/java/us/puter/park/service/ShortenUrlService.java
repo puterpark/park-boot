@@ -7,6 +7,7 @@ import us.puter.park.domain.entity.ShortenUrl;
 import us.puter.park.domain.entity.ShortenUrlInfo;
 import us.puter.park.repository.ShortenUrlInfoRepository;
 import us.puter.park.repository.ShortenUrlRepository;
+import us.puter.park.util.Utility;
 
 @Service
 @Transactional
@@ -73,6 +74,16 @@ public class ShortenUrlService {
 			orgShortenUrlInfo.setRedirectCount(++redirectCount);
 			shortenUrlInfoRepository.save(orgShortenUrlInfo);
 		}
+	}
+
+	/**
+	 * 입력한 시간에 따라 redirectCount 합계 추출
+	 * @param date
+	 * @return
+	 */
+	public Long getRedirectCountByRegDate(Long date) {
+		String yyyyMMdd = Utility.getTimeYYYYMMDD(date);
+		return shortenUrlInfoRepository.selectRedirectCountByRegDate(Long.parseLong(yyyyMMdd));
 	}
 
 }
