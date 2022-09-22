@@ -27,9 +27,8 @@ public class MenuService {
 
 		// redis에서 가져온 값이 없을 경우 DB에서 찾는다.
 		if (CollectionUtils.isEmpty(menuList)) {
-			long menuListCount = menuRepository.countMenuByUseFlag(1L);
-
-			if (menuListCount > 0) {
+			boolean existsMenu = menuRepository.existsMenuByUseFlag(1L);
+			if (existsMenu) {
 				menuList = menuRepository.findMenuByUseFlag(1L);
 				menuRedisRepository.cacheMenuList(menuList); // 캐시 저장
 			}

@@ -5,15 +5,14 @@ import us.puter.park.domain.entity.Menu;
 
 import java.util.List;
 
-public interface MenuRepository extends JpaRepository<Menu, Long>{
+public interface MenuRepository extends JpaRepository<Menu, Long> {
 
 	/**
-	 * 사용여부에 따른 메뉴 총 갯수
-	 *
+	 * 사용여부에 따른 메뉴 존재 여부
 	 * @param useFlag
 	 * @return
 	 */
-	Long countMenuByUseFlag(Long useFlag);
+	boolean existsMenuByUseFlag(Long useFlag);
 
 	/**
 	 * 사용여부에 따른 메뉴 목록
