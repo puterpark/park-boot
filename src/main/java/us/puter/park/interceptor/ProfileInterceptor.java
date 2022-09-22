@@ -14,7 +14,7 @@ public class ProfileInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
 		activeProfile = StringUtils.isBlank(activeProfile) ? "live" : activeProfile;
-		request.setAttribute("activeProfile", activeProfile);
+		request.setAttribute("useMin", "live".equals(activeProfile) ? ".min" : "");
 
 		return true;
 	}

@@ -11,7 +11,7 @@
 	<%@ include file="../common/head.jsp" %>
 	<script type="text/javascript" src="/resources/js/mousetrap.min.js"></script>
 	<script type="text/javascript" src="/resources/js/sweetalert.min.js"></script>
-	<script type="text/javascript" src="/resources/js/pages/tools/filesize<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
+	<script type="text/javascript" src="/resources/js/pages/tools/filesize${useMin}.js"></script>
 	
 	<link type="text/css" rel="stylesheet" href="/resources/css/pages/tools/filesize.css">
 </head>

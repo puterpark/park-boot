@@ -89,7 +89,7 @@
 						</div>
 						<input type="hidden" id="top5day7" value='${top5day7}' />
 						<input type="hidden" id="top5day30" value='${top5day30}' />
-						<script type="text/javascript" src="/resources/js/pages/admin/admin<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
+						<script type="text/javascript" src="/resources/js/pages/admin/admin${useMin}.js"></script>
 					</div>
 				</div>
 			</div>

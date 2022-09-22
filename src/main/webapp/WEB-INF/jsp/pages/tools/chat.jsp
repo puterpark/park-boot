@@ -11,7 +11,7 @@
 	<%@ include file="../common/head.jsp" %>
 	<script type="text/javascript" src="/resources/js/mousetrap.min.js"></script>
 	<script type="text/javascript" src="/resources/js/sweetalert.min.js"></script>
-	<script type="text/javascript" src="/resources/js/pages/tools/chat<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
+	<script type="text/javascript" src="/resources/js/pages/tools/chat${useMin}.js"></script>
 </head>
 <body class="layout layout-vertical layout-left-navigation layout-below-toolbar">
 	<main>

@@ -68,5 +68,5 @@
 	<%@ include file="../common/footer.jsp" %>
 </body>
 <input type="hidden" id="qrCodeSize" value="${qrCodeSize}" />
-<script type="text/javascript" src="/resources/js/pages/tools/qrcode<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
+<script type="text/javascript" src="/resources/js/pages/tools/qrcode${useMin}.js"></script>
 </html>
