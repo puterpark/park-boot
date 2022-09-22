@@ -7,7 +7,11 @@ import us.puter.park.domain.entity.ShortenUrl;
 import us.puter.park.domain.entity.ShortenUrlInfo;
 import us.puter.park.repository.ShortenUrlInfoRepository;
 import us.puter.park.repository.ShortenUrlRepository;
+import us.puter.park.service.dto.ShortenUrlDto;
 import us.puter.park.util.Utility;
+
+import java.util.Calendar;
+import java.util.List;
 
 @Service
 @Transactional
@@ -59,11 +63,11 @@ public class ShortenUrlService {
 	 */
 	public void doInsertShortenUrlInfo(ShortenUrlInfo shortenUrlInfo) {
 
-		Long shortenUrlUid = shortenUrlInfo.getShortenUrlUid();
+		ShortenUrl shortenUrl = shortenUrlInfo.getShortenUrl();
 		Long regDate = shortenUrlInfo.getRegDate();
 
 		// 값 존재 여부 확인
-		ShortenUrlInfo orgShortenUrlInfo = shortenUrlInfoRepository.findShortenUrlInfosByShortenUrlUidAndRegDate(shortenUrlUid, regDate);
+		ShortenUrlInfo orgShortenUrlInfo = shortenUrlInfoRepository.findShortenUrlInfoByShortenUrlAndRegDate(shortenUrl, regDate);
 
 		if (orgShortenUrlInfo == null) {
 			// 새로 insert
@@ -84,6 +88,19 @@ public class ShortenUrlService {
 	public Long getRedirectCountByRegDate(Long date) {
 		String yyyyMMdd = Utility.getTimeYYYYMMDD(date);
 		return shortenUrlInfoRepository.selectRedirectCountByRegDate(Long.parseLong(yyyyMMdd));
+	}
+
+	/**
+	 * 현재날짜에서 day만큼 뺀 날짜부터 리다이렉트 수가 가장 많은 상위 5개 shortenUrl 조회
+	 * @param day
+	 * @return
+	 */
+	public List<ShortenUrlDto> getShortenUrlListTop5(int day) {
+
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, day);
+		String yyyyMMdd = Utility.getTimeYYYYMMDD(cal.getTimeInMillis());
+		return shortenUrlRepository.findShortenUrlListTop5(Long.parseLong(yyyyMMdd));
 	}
 
 }

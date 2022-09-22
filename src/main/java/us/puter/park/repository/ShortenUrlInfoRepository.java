@@ -2,18 +2,19 @@ package us.puter.park.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import us.puter.park.domain.entity.ShortenUrl;
 import us.puter.park.domain.entity.ShortenUrlInfo;
 
 public interface ShortenUrlInfoRepository extends JpaRepository<ShortenUrlInfo, Long> {
 
 	/**
-	 * shortenUrlUid, regDate를 통한 데이터 확인
+	 * shortenUrl, RegDate를 통한 데이터 확인
 	 *
-	 * @param shortenUrlUid
-	 * @param regDate
+	 * @param shortenUrl
+	 * @param RegDate
 	 * @return
 	 */
-	ShortenUrlInfo findShortenUrlInfosByShortenUrlUidAndRegDate(Long shortenUrlUid, Long regDate);
+	ShortenUrlInfo findShortenUrlInfoByShortenUrlAndRegDate(ShortenUrl shortenUrl, Long RegDate);
 
 	/**
 	 * regDate를 통한 redirectCount의 합계 조회

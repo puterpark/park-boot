@@ -51,7 +51,7 @@ public class ShortenUrlController {
 
 		String today = Utility.getTimeYYYYMMDD(System.currentTimeMillis());
 		ShortenUrlInfo shortenUrlInfo = ShortenUrlInfo.builder()
-											.shortenUrlUid(shortenUrl.getShortenUrlUid())
+											.shortenUrl(shortenUrl)
 											.redirectCount(1L)
 											.regDate(Long.parseLong(today))
 											.build();

@@ -3,7 +3,7 @@ package us.puter.park.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import us.puter.park.domain.entity.ShortenUrl;
 
-public interface ShortenUrlRepository extends JpaRepository<ShortenUrl, Long>{
+public interface ShortenUrlRepository extends JpaRepository<ShortenUrl, Long>, ShortenUrlRepositoryCustom {
 
 	/**
 	 * 실제 URL로 짧은 URI 정보 추출
