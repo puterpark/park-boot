@@ -1,6 +1,8 @@
 package us.puter.park.service;
 
 import lombok.RequiredArgsConstructor;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import us.puter.park.domain.entity.ShortenUrl;
@@ -87,7 +89,8 @@ public class ShortenUrlService {
 	 */
 	public Long getRedirectCountByRegDate(Long date) {
 		String yyyyMMdd = Utility.getTimeYYYYMMDD(date);
-		return shortenUrlInfoRepository.selectRedirectCountByRegDate(Long.parseLong(yyyyMMdd));
+		Long count = shortenUrlInfoRepository.selectRedirectCountByRegDate(Long.parseLong(yyyyMMdd));
+		return count == null ? 0L : count;
 	}
 
 	/**
@@ -101,6 +104,25 @@ public class ShortenUrlService {
 		cal.add(Calendar.DATE, day);
 		String yyyyMMdd = Utility.getTimeYYYYMMDD(cal.getTimeInMillis());
 		return shortenUrlRepository.findShortenUrlListTop5(Long.parseLong(yyyyMMdd));
+	}
+
+	/**
+	 * 도표 사용을 위한 List&lt;ShortenUrlDto&gt; → JsonString 변환
+	 * @param list
+	 * @return
+	 */
+	public String toJsonStringForChart(List<ShortenUrlDto> list) {
+
+		JSONArray jsonArr = new JSONArray();
+
+		for (ShortenUrlDto dto : list) {
+			JSONObject jsonObj = new JSONObject();
+			jsonObj.put("x", dto.getShortenUri());
+			jsonObj.put("y", dto.getRedirectCount());
+			jsonArr.add(jsonObj);
+		}
+
+		return jsonArr.toJSONString();
 	}
 
 }

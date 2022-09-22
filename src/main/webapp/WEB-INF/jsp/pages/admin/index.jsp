@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="../common/head.jsp" %>
+	<%@ include file="../common/head.jsp" %>
+	<link type="text/css" rel="stylesheet" href="/resources/css/pages/admin/admin.css">
 </head>
 <body class="layout layout-vertical layout-left-navigation layout-below-toolbar">
 	<main>
@@ -37,16 +38,47 @@
 										</div>
 										<div class="widget-group row no-gutters">
 											<div class="col-12 p-1">
-												<div>
-													<span class="badge badge-danger">TODAY</span>
-													${todayRedirectCount}
-												</div>
-												<c:forEach var="list" items="${shortenUrlTop5List}">
-													<div>
-														<span class="badge badge-danger">URI</span> : ${list.shortenUri} /
-														<span class="badge badge-secondary">CNT</span> : ${list.redirectCount}
+												<div class="widget card">
+													<div class="widget-content p-4">
+														<div class="row">
+															<div class="col-12 col-lg-3">
+																<div class="widget card">
+																	<div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+																		<div class="col">
+																			<span class="h6">TODAY</span>
+																		</div>
+																	</div>
+																	<div class="widget-content pt-2 pb-10 d-flex flex-column align-items-center justify-content-center">
+																		<div class="title text-secondary">${todayRedirectCount}</div>
+																		<div class="sub-title h6 text-muted">REDIRECT COUNT</div>
+																	</div>
+																</div>
+															</div>
+															<div class="col-12 col-lg-9">
+																<div class="widget shortenUrlWidget">
+																	<div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
+																		<div class="col">
+																			<span class="h6">[TOP 5] Shorten URL</span>
+																		</div>
+																		<div>
+																			<button type="button" class="shortenUrlWidget-option-change-btn btn btn-link" data-interval="07D">
+																				7 Days
+																			</button>
+																			<button type="button" class="shortenUrlWidget-option-change-btn btn btn-link" data-interval="30D">
+																				30 Days
+																			</button>
+																		</div>
+																	</div>
+																	<div class="widget-content p-1">
+																		<div id="shorten-url-widget-main-chart">
+																			<svg></svg>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
 													</div>
-												</c:forEach>
+												</div>
 											</div>
 										</div>
 										<!-- / WIDGET GROUP -->
@@ -55,7 +87,9 @@
 							<!-- / CONTENT -->
 							</div>
 						</div>
-						<script type="text/javascript" src="/resources/js/apps/dashboard/project.js"></script>
+						<input type="hidden" id="top5day7" value='${top5day7}' />
+						<input type="hidden" id="top5day30" value='${top5day30}' />
+						<script type="text/javascript" src="/resources/js/pages/admin/admin<c:if test="${activeProfile ne 'local'}">.min</c:if>.js"></script>
 					</div>
 				</div>
 			</div>

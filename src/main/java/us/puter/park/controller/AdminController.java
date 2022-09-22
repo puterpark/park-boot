@@ -36,11 +36,17 @@ public class AdminController {
 		// 메뉴 설정
 		menuService.setModelFromMenu(model, null);
 
+		// 현재 리다이렉트 수 총합
 		Long todayRedirectCount = shortenUrlService.getRedirectCountByRegDate(Utility.getTimeMillis());
-		List<ShortenUrlDto> shortenUrlTop5List = shortenUrlService.getShortenUrlListTop5(-7);
-
 		model.addAttribute("todayRedirectCount", todayRedirectCount);
-		model.addAttribute("shortenUrlTop5List", shortenUrlTop5List);
+
+		// 7일 전부터 오늘까지 리다이렉트 수가 가장 많은 상위 5개
+		List<ShortenUrlDto> shortenUrlList = shortenUrlService.getShortenUrlListTop5(-7);
+		model.addAttribute("top5day7", shortenUrlService.toJsonStringForChart(shortenUrlList));
+
+		// 30일 전부터 오늘까지 리다이렉트 수가 가장 많은 상위 5개
+		shortenUrlList = shortenUrlService.getShortenUrlListTop5(-30);
+		model.addAttribute("top5day30", shortenUrlService.toJsonStringForChart(shortenUrlList));
 
 		return "pages/admin/index";
 	}
