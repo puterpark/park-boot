@@ -76,8 +76,17 @@
 		return chart;
 	});
 
-	$('.shortenUrlWidget-option-change-btn').on('click', function (ev) {
-		shortenUrlWidgetOption = $(ev.target).data('interval');
+	const $shortenUrlWidgetBtn = $('.shortenUrlWidget-option-change-btn');
+	$shortenUrlWidgetBtn.on('click', function (ev) {
+		const target = ev.target
+			, $target = $(target);
+
+		$target.removeClass('btn-outline-secondary');
+		$target.addClass('btn-secondary');
+		$shortenUrlWidgetBtn.not(target).removeClass('btn-secondary');
+		$shortenUrlWidgetBtn.not(target).addClass('btn-outline-secondary');
+
+		shortenUrlWidgetOption = $target.data('interval');
 		$(window).trigger('update:shortenUrlWidget');
 	});
 

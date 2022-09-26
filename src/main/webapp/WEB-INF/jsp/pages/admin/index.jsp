@@ -33,9 +33,6 @@
 								<div class="tab-content">
 									<div class="tab-pane fade show active p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab">
 										<!-- WIDGET GROUP -->
-										<div class="widget-group row no-gutters adfit">
-											<%@ include file="../common/adfit.jsp" %>
-										</div>
 										<div class="widget-group row no-gutters">
 											<div class="col-12 p-1">
 												<div class="widget card">
@@ -58,13 +55,13 @@
 																<div class="widget shortenUrlWidget">
 																	<div class="widget-header px-4 row no-gutters align-items-center justify-content-between">
 																		<div class="col">
-																			<span class="h6">[TOP 5] Shorten URL</span>
+																			<span class="h6">TOP5 URI</span>
 																		</div>
 																		<div>
-																			<button type="button" class="shortenUrlWidget-option-change-btn btn btn-link" data-interval="07D">
+																			<button type="button" class="shortenUrlWidget-option-change-btn btn btn-secondary" data-interval="07D">
 																				7 Days
 																			</button>
-																			<button type="button" class="shortenUrlWidget-option-change-btn btn btn-link" data-interval="30D">
+																			<button type="button" class="shortenUrlWidget-option-change-btn btn btn-outline-secondary" data-interval="30D">
 																				30 Days
 																			</button>
 																		</div>
