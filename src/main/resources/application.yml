@@ -38,7 +38,7 @@ jasypt:
 spring:
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: ENC(WUkKRWJN6oNRGQLHiVYXebsHq3E4bjM4Og+/QdWTzAJ0H5xl86fUqi9UJLlv5/6IqjjG1godi/7OEd+746Z182fkXHo4AhNVwaAQY/R4lVE9HFzITQ5ajXQ3O/vytBjvfTY+c0Ogvb8oMMMDv8YOKw==)
+    jdbc-url: ENC(WUkKRWJN6oNRGQLHiVYXebsHq3E4bjM4Og+/QdWTzAJ0H5xl86fUqi9UJLlv5/6IqjjG1godi/7OEd+746Z182fkXHo4AhNVwaAQY/R4lVE9HFzITQ5ajXQ3O/vytBjvfTY+c0Ogvb8oMMMDv8YOKw==)
     username: ENC(1KfohpyW0HfAykm1IJjpQQ==)
     password: ENC(fNw440KdGSPe5Pikh+6Ompb5zuIpZgUp)
   main:
@@ -63,6 +63,10 @@ spring:
     host: u+EFyB9LbyW6IspU6f3kXd/s+VHJuPDS
     port: 16379
     password: ZzGoQcFA9kaT5/EWRkRh5McIVbljl01e
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: us.puter.park
 
 logging:
   level:
