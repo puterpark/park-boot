@@ -58,43 +58,29 @@ public class ShortenUrlService {
 	}
 
 	/**
-	 * shortenUrl의 일자별 redirect 수 저장
+	 * shortenUrl의 접근 기록 저장
 	 *
 	 * @param shortenUrlInfo
 	 * @return
 	 */
 	public void doInsertShortenUrlInfo(ShortenUrlInfo shortenUrlInfo) {
 
-		ShortenUrl shortenUrl = shortenUrlInfo.getShortenUrl();
-		Long regDate = shortenUrlInfo.getRegDate();
-
-		// 값 존재 여부 확인
-		ShortenUrlInfo orgShortenUrlInfo = shortenUrlInfoRepository.findShortenUrlInfoByShortenUrlAndRegDate(shortenUrl, regDate);
-
-		if (orgShortenUrlInfo == null) {
-			// 새로 insert
-			shortenUrlInfoRepository.save(shortenUrlInfo);
-		} else {
-			// redirectCount의 값만 바꾼다.
-			Long redirectCount = orgShortenUrlInfo.getRedirectCount();
-			orgShortenUrlInfo.setRedirectCount(++redirectCount);
-			shortenUrlInfoRepository.save(orgShortenUrlInfo);
-		}
+		shortenUrlInfoRepository.save(shortenUrlInfo);
 	}
 
 	/**
-	 * 입력한 시간에 따라 redirectCount 합계 추출
+	 * 입력한 시간 이후의 접근 기록 횟수 추출
 	 * @param date
 	 * @return
 	 */
 	public Long getRedirectCountByRegDate(Long date) {
-		String yyyyMMdd = Utility.getTimeYYYYMMDD(date);
-		Long count = shortenUrlInfoRepository.selectRedirectCountByRegDate(Long.parseLong(yyyyMMdd));
+
+		Long count = shortenUrlInfoRepository.countByRegDateGreaterThanEqual(Utility.getHourOfToday(date));
 		return count == null ? 0L : count;
 	}
 
 	/**
-	 * 현재날짜에서 day만큼 뺀 날짜부터 리다이렉트 수가 가장 많은 상위 5개 shortenUrl 조회
+	 * 현재날짜에서 day만큼 뺀 날짜부터 접근 기록 수가 가장 많은 상위 5개 shortenUrl 조회
 	 * @param day
 	 * @return
 	 */
@@ -102,8 +88,7 @@ public class ShortenUrlService {
 
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, day);
-		String yyyyMMdd = Utility.getTimeYYYYMMDD(cal.getTimeInMillis());
-		return shortenUrlRepository.findShortenUrlListTop5(Long.parseLong(yyyyMMdd));
+		return shortenUrlRepository.findShortenUrlListTop5(Utility.getHourOfToday(cal.getTimeInMillis()));
 	}
 
 	/**
