@@ -21,18 +21,18 @@ public class ShortenUrlRepositoryImpl implements ShortenUrlRepositoryCustom {
 		QShortenUrlInfo shortenUrlInfo = QShortenUrlInfo.shortenUrlInfo;
 
 		return jpaQueryFactory.select(
-						Projections.fields(
-								ShortenUrlDto.class,
-								shortenUrl.shortenUrlUid,
-								shortenUrl.shortenUri,
-								shortenUrlInfo.redirectCount.sum().as(shortenUrlInfo.redirectCount)
-						)
+					Projections.fields(
+						ShortenUrlDto.class,
+						shortenUrl.shortenUrlUid,
+						shortenUrl.shortenUri,
+						shortenUrlInfo.count().as("redirectCount")
+					)
 				)
 				.from(shortenUrl)
 				.innerJoin(shortenUrlInfo).on(shortenUrl.shortenUrlUid.eq(shortenUrlInfo.shortenUrl.shortenUrlUid))
 				.where(shortenUrlInfo.regDate.goe(date))
 				.groupBy(shortenUrl.shortenUrlUid)
-				.orderBy(shortenUrlInfo.redirectCount.sum().desc())
+				.orderBy(shortenUrlInfo.count().desc())
 				.limit(5L)
 				.fetch();
 	}

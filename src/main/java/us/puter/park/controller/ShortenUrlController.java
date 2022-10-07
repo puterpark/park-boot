@@ -49,14 +49,17 @@ public class ShortenUrlController {
 			return;
 		}
 
-		String today = Utility.getTimeYYYYMMDD(System.currentTimeMillis());
-		ShortenUrlInfo shortenUrlInfo = ShortenUrlInfo.builder()
-											.shortenUrl(shortenUrl)
-											.redirectCount(1L)
-											.regDate(Long.parseLong(today))
-											.build();
-		// 해당 shortenUrl의 일자별 redirect 수 저장
-		shortenUrlService.doInsertShortenUrlInfo(shortenUrlInfo);
+		try {
+			ShortenUrlInfo shortenUrlInfo = ShortenUrlInfo.builder()
+					.shortenUrl(shortenUrl)
+					.accessIp(Utility.getRemoteIP(req))
+					.regDate(Utility.getTimeMillis())
+					.build();
+			// 해당 shortenUrl의 일자별 접근 기록 저장
+			shortenUrlService.doInsertShortenUrlInfo(shortenUrlInfo);
+		} catch (Exception e) {
+			log.error("occured error while insert shortenUrl info.");
+		}
 
 		res.sendRedirect(shortenUrl.getOriginalUrl());
 	}

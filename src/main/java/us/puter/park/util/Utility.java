@@ -10,6 +10,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 
@@ -131,6 +132,17 @@ public class Utility {
 		return format.format(new Date(time));
 	}
 
+	public static long getHourOfToday(long time) {
+
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(time);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+
+		return Utility.getTimeMillis(cal.getTimeInMillis());
+	}
+
 	public static String getExtension(String fileName) {
 		if (fileName == null) {
 			return "etc";
@@ -234,7 +246,7 @@ public class Utility {
 	}
 
 	/**
-	 *
+	 * 접근 IP 확인
 	 * @param request
 	 * @return
 	 */

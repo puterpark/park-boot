@@ -23,16 +23,16 @@ public class ShortenUrlInfo {
 	@JoinColumn(name = "shortenUrlUid")
 	private ShortenUrl shortenUrl;
 
-	@Column(name = "redirectCount")
-	private Long redirectCount;
+	@Column(name = "accessIp")
+	private String accessIp;
 
 	@Column(name = "regDate")
 	private Long regDate;
 
 	@Builder
-	public ShortenUrlInfo(ShortenUrl shortenUrl, Long redirectCount, Long regDate) {
+	public ShortenUrlInfo(ShortenUrl shortenUrl, String accessIp, Long regDate) {
 		this.shortenUrl = shortenUrl;
-		this.redirectCount = redirectCount;
+		this.accessIp = accessIp;
 		this.regDate = regDate;
 	}
 
