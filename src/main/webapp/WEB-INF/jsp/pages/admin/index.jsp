@@ -50,6 +50,17 @@
 																		<div class="sub-title h6 text-muted">REDIRECT COUNT</div>
 																	</div>
 																</div>
+																<div class="widget card">
+																	<div class="widget-header pl-4 pr-2 row no-gutters align-items-center justify-content-between">
+																		<div class="col">
+																			<span class="h6">TODAY</span>
+																		</div>
+																	</div>
+																	<div class="widget-content pt-2 pb-10 d-flex flex-column align-items-center justify-content-center">
+																		<div class="title text-warning" style="font-size: 4rem;">${todayMostAccessIp}</div>
+																		<div class="sub-title h6 text-muted">MOST ACCESS IP</div>
+																	</div>
+																</div>
 															</div>
 															<div class="col-12 col-lg-9">
 																<div class="widget shortenUrlWidget">

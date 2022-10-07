@@ -12,5 +12,6 @@ public class ShortenUrlDto {
 	private Long shortenUrlUid;
 	private String shortenUri;
 	private Long redirectCount;
+	private String accessIp;
 
 }
