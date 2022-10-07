@@ -36,9 +36,15 @@ public class AdminController {
 		// 메뉴 설정
 		menuService.setModelFromMenu(model, null);
 
+		Long currentTime = Utility.getTimeMillis();
+
 		// 현재 리다이렉트 수 총합
-		Long todayRedirectCount = shortenUrlService.getRedirectCountByRegDate(Utility.getTimeMillis());
+		Long todayRedirectCount = shortenUrlService.getRedirectCountByRegDate(currentTime);
 		model.addAttribute("todayRedirectCount", todayRedirectCount);
+
+		// 현재 가장 많이 접근한 IP
+		String todayMostAccessIp = shortenUrlService.getMostAccessIp(currentTime);
+		model.addAttribute("todayMostAccessIp", todayMostAccessIp);
 
 		// 7일 전부터 오늘까지 리다이렉트 수가 가장 많은 상위 5개
 		List<ShortenUrlDto> shortenUrlList = shortenUrlService.getShortenUrlListTop5(-7);

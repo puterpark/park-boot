@@ -110,4 +110,22 @@ public class ShortenUrlService {
 		return jsonArr.toJSONString();
 	}
 
+	/**
+	 * 입력한 시간 이후의 가장 접근을 많이한 IP 추출
+	 * @param date
+	 * @return
+	 */
+	public String getMostAccessIp(Long date) {
+
+		String mostAccessIp = "x.x.x.x";
+
+		ShortenUrlDto shortenUrlDto = shortenUrlRepository.findMostAccessIp(Utility.getHourOfToday(date));
+
+		if (shortenUrlDto != null) {
+			mostAccessIp = shortenUrlDto.getAccessIp();
+		}
+
+		return mostAccessIp;
+	}
+
 }

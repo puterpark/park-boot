@@ -37,4 +37,23 @@ public class ShortenUrlRepositoryImpl implements ShortenUrlRepositoryCustom {
 				.fetch();
 	}
 
+	@Override
+	public ShortenUrlDto findMostAccessIp(Long date) {
+
+		QShortenUrlInfo shortenUrlInfo = QShortenUrlInfo.shortenUrlInfo;
+
+		return jpaQueryFactory.select(
+					Projections.fields(
+						ShortenUrlDto.class,
+						shortenUrlInfo.accessIp,
+						shortenUrlInfo.count().as("redirectCount")
+					)
+				)
+				.from(shortenUrlInfo)
+				.where(shortenUrlInfo.regDate.goe(date))
+				.groupBy(shortenUrlInfo.accessIp)
+				.orderBy(shortenUrlInfo.count().desc())
+				.fetchFirst();
+	}
+
 }

@@ -13,4 +13,11 @@ public interface ShortenUrlRepositoryCustom {
 	 */
 	List<ShortenUrlDto> findShortenUrlListTop5(Long date);
 
+	/**
+	 * date 이후의 가장 많이 접근한 IP 조회
+	 * @param date
+	 * @return
+	 */
+	ShortenUrlDto findMostAccessIp(Long date);
+
 }
