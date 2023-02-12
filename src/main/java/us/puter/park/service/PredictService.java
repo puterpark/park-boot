@@ -25,7 +25,7 @@ public class PredictService {
 	@Value("${system.predict.target-url}")
 	private String targetUrl;
 
-	@Value("${system.predict.timeout}")
+	@Value("${system.url-connection.timeout}")
 	private int timeout;
 
 	/**
@@ -112,7 +112,7 @@ public class PredictService {
 			log.error("문장 감성분석기 API 호출 중 오류 발생.", e);
 		} finally {
 			try {
-				if (reader != null) {
+				if (osw != null) {
 					osw.close();
 				}
 			} catch (IOException e) {
