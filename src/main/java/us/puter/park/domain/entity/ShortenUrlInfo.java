@@ -26,13 +26,17 @@ public class ShortenUrlInfo {
 	@Column(name = "accessIp")
 	private String accessIp;
 
+	@Column(name = "ipInfo")
+	private String ipInfo;
+
 	@Column(name = "regDate")
 	private Long regDate;
 
 	@Builder
-	public ShortenUrlInfo(ShortenUrl shortenUrl, String accessIp, Long regDate) {
+	public ShortenUrlInfo(ShortenUrl shortenUrl, String accessIp, String ipInfo, Long regDate) {
 		this.shortenUrl = shortenUrl;
 		this.accessIp = accessIp;
+		this.ipInfo = ipInfo;
 		this.regDate = regDate;
 	}
 

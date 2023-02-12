@@ -5,11 +5,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import us.puter.park.domain.entity.ShortenUrl;
 import us.puter.park.domain.entity.ShortenUrlInfo;
 import us.puter.park.service.ShortenUrlService;
 import us.puter.park.util.JsonUtil;
+import us.puter.park.util.URLConnectionUtil;
 import us.puter.park.util.Utility;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +30,7 @@ public class ShortenUrlController {
 
 	private final ShortenUrlService shortenUrlService;
 
-	@Value("${system.shorten-uri-length}")
+	@Value("${system.shorten-uri.length}")
 	private int shortenUriLength;
 
 	/**
@@ -50,15 +55,19 @@ public class ShortenUrlController {
 		}
 
 		try {
+			String ip = Utility.getRemoteIP(req);
+			String ipInfo = URLConnectionUtil.connect("http://ip-api.com/json/" + ip);
+
 			ShortenUrlInfo shortenUrlInfo = ShortenUrlInfo.builder()
 					.shortenUrl(shortenUrl)
-					.accessIp(Utility.getRemoteIP(req))
+					.accessIp(ip)
+					.ipInfo(ipInfo)
 					.regDate(Utility.getTimeMillis())
 					.build();
 			// 해당 shortenUrl의 일자별 접근 기록 저장
 			shortenUrlService.doInsertShortenUrlInfo(shortenUrlInfo);
 		} catch (Exception e) {
-			log.error("occured error while insert shortenUrl info.");
+			log.error("occured error while insert shortenUrl info.", e);
 		}
 
 		res.sendRedirect(shortenUrl.getOriginalUrl());

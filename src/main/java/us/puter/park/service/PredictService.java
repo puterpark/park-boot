@@ -25,7 +25,7 @@ public class PredictService {
 	@Value("${system.predict.target-url}")
 	private String targetUrl;
 
-	@Value("${system.predict.timeout}")
+	@Value("${system.url-connection.timeout}")
 	private int timeout;
 
 	/**

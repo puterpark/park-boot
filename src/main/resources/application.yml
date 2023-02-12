@@ -87,11 +87,13 @@ system:
   tools: week;month;filesize;unixtime;shortenurl;endecode;qrcode;predict;json;progress;chat
   # QR Code 크기 (단위 : px)
   qr-code-size: 250
-  # shortenUri 길이
-  shorten-uri-length: 6
+  shorten-uri:
+    # shortenUri 길이
+    length: 6
   # predict API 설정
   predict:
     # URL
     target-url: z9JamtJlX19reqCcwIEbmzTUKJOQi5P0ho3l7gy412iJuP2g24PNEo7dhizIG75s5fiJ11dQvTfszfmIoH6hjAvlcXRYbDx4
-    # TIMEOUT (단위 : ms)
+  url-connection:
+    # URL connection 기본 timeout (단위 : ms)
     timeout: 60000
