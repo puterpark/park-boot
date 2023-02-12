@@ -2,15 +2,16 @@ package us.puter.park.domain.entity;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity(name = "shortenurl_info")
+@Entity
+@Table(name = "shortenurl_info")
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 public class ShortenUrlInfo {
 
 	@Id
@@ -18,20 +19,24 @@ public class ShortenUrlInfo {
 	@Column(name = "shortenUrlInfoUid")
 	private Long shortenUrlInfoUid;
 
-	@Column(name = "shortenUrlUid")
-	private Long shortenUrlUid;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "shortenUrlUid")
+	private ShortenUrl shortenUrl;
 
-	@Column(name = "redirectCount")
-	private Long redirectCount;
+	@Column(name = "accessIp")
+	private String accessIp;
+
+	@Column(name = "ipInfo")
+	private String ipInfo;
 
 	@Column(name = "regDate")
 	private Long regDate;
 
 	@Builder
-	public ShortenUrlInfo(Long shortenUrlInfoUid, Long shortenUrlUid, Long redirectCount, Long regDate) {
-		this.shortenUrlInfoUid = shortenUrlInfoUid;
-		this.shortenUrlUid = shortenUrlUid;
-		this.redirectCount = redirectCount;
+	public ShortenUrlInfo(ShortenUrl shortenUrl, String accessIp, String ipInfo, Long regDate) {
+		this.shortenUrl = shortenUrl;
+		this.accessIp = accessIp;
+		this.ipInfo = ipInfo;
 		this.regDate = regDate;
 	}
 

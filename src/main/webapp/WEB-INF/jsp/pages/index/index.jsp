@@ -78,7 +78,6 @@
 							<!-- / CONTENT -->
 							</div>
 						</div>
-						<script type="text/javascript" src="/resources/js/apps/dashboard/project.js"></script>
 					</div>
 				</div>
 			</div>

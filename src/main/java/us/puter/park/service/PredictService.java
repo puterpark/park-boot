@@ -1,8 +1,7 @@
 package us.puter.park.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.json.simple.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import us.puter.park.util.Utility;
@@ -19,15 +18,14 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Map;
 
+@Slf4j
 @Service
 public class PredictService {
-
-	private static final Logger logger = LoggerFactory.getLogger(PredictService.class);
 
 	@Value("${system.predict.target-url}")
 	private String targetUrl;
 
-	@Value("${system.predict.timeout}")
+	@Value("${system.url-connection.timeout}")
 	private int timeout;
 
 	/**
@@ -111,10 +109,10 @@ public class PredictService {
 				mood = true;
 			}
 		} catch (NoSuchAlgorithmException | KeyManagementException | IOException e) {
-			logger.error("문장 감성분석기 API 호출 중 오류 발생.", e);
+			log.error("문장 감성분석기 API 호출 중 오류 발생.", e);
 		} finally {
 			try {
-				if (reader != null) {
+				if (osw != null) {
 					osw.close();
 				}
 			} catch (IOException e) {

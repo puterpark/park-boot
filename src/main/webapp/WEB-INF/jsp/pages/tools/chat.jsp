@@ -11,7 +11,7 @@
 	<%@ include file="../common/head.jsp" %>
 	<script type="text/javascript" src="/resources/js/mousetrap.min.js"></script>
 	<script type="text/javascript" src="/resources/js/sweetalert.min.js"></script>
-	<script type="text/javascript" src="/resources/js/pages/tools/month${useMin}.js"></script>
+	<script type="text/javascript" src="/resources/js/pages/tools/chat${useMin}.js"></script>
 </head>
 <body class="layout layout-vertical layout-left-navigation layout-below-toolbar">
 	<main>
@@ -36,37 +36,26 @@
 												<div class="widget widget5 card">
 													<div class="widget-content p-4">
 														<div class="row">
-															<div class="col-12 col-lg-6">
-																<div class="form-group">
-																	<textarea class="form-control mousetrap" id="textarea" rows="15"></textarea>
-																	<label for="textarea">여기에 입력하세요.</label>
-																	<button type="button" class="btn btn-danger btn-lg btn-block" onclick="javascript:convert();">convert</button>
+															<div class="col-12" style="margin-bottom: -30px;">
+																<span class="badge badge-warning">
+																	<span id="totalCnt">0</span>名
+																</span>&nbsp;
+																<span class="badge badge-secondary" id="nickname">익명</span>
+																<div class="form-group" style="text-align: right;">
+																	<label for="msg" class="sr-only">입력하세요.</label>
+																	<input type="text" class="form-control form-control-lg" id="msg" placeholder="입력하세요." onkeydown="enterCheck();">
+																	<button type="submit" class="btn btn-secondary" onclick="sendMsg();" style="min-width: 1rem;">
+																		<i class="icon s-4 icon-send"></i>
+																	</button>
 																</div>
 															</div>
-															<div class="col-12 col-lg-6">
-																<div class="alert alert-success" role="alert">
-																	<h5 class="alert-heading">
-																		예시와 같이 작성 후,<br/>
-																		convert 버튼 클릭 or Ctrl + Enter<br/>
-																		중복된 상세사항은 삭제 및 계산된 공수를 상세사항 뒤에 덧붙입니다.<br/>
-																		<font style='color:red;'>(구분자는 " / ")</font>
-																	</h5>
-																	<p>
-																		> 추가요구사항 개발 / 1<br/>
-																		> apache & tomcat 연동 테스트 / 0.875<br/>
-																		> 산출물 작성 / 0.125<br/>
-																		> 추가요구사항 개발 및 반영 / 0.5<br/>
-																		> apache 설치 및 연동 / 0.5<br/>
-																		> 산출물 작성 / 0.9375<br/>
-																		> 주소록 이관 분석 / 0.5<br/>
-																	</p>
-																</div>
+															<div class="col-12">
+																<div class="form-group" id="msgDiv"></div>
 															</div>
 														</div>
 													</div>
 												</div>
 											</div>
-											<div id="resultDiv" class="col-12 p-1 hidden"></div>
 										</div>
 										<!-- / WIDGET GROUP -->
 									</div>

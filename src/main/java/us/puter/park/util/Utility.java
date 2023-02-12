@@ -1,8 +1,7 @@
 package us.puter.park.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.codec.binary.Base64;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import us.puter.park.config.JasyptConfig;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,12 +10,12 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Enumeration;
 
+@Slf4j
 public class Utility {
-
-	protected static final Logger logger = LoggerFactory.getLogger(Utility.class);
 
 	private Utility() {
 
@@ -109,12 +108,39 @@ public class Utility {
 		return format.format(new Date(time));
 	}
 
+	public static String getTimeHHMMSS(long time) {
+
+		String formatString = "HH:mm:ss";
+		SimpleDateFormat format = new SimpleDateFormat(formatString);
+
+		return format.format(new Date(time));
+	}
+
+	public static String getTimeYYYYMMDDHHMMSS(long time) {
+
+		String formatString = "yyyy.MM.dd HH:mm:ss";
+		SimpleDateFormat format = new SimpleDateFormat(formatString);
+
+		return format.format(new Date(time));
+	}
+
 	public static String getTimeYYYYMMDD(long time) {
 
 		String formatString = "yyyyMMdd";
 		SimpleDateFormat format = new SimpleDateFormat(formatString);
 
 		return format.format(new Date(time));
+	}
+
+	public static long getHourOfToday(long time) {
+
+		Calendar cal = Calendar.getInstance();
+		cal.setTimeInMillis(time);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+
+		return Utility.getTimeMillis(cal.getTimeInMillis());
 	}
 
 	public static String getExtension(String fileName) {
@@ -162,7 +188,7 @@ public class Utility {
 				}
 			}
 		} catch (SocketException e) {
-			logger.error(e.getMessage(), e);
+			log.error(e.getMessage(), e);
 
 			ip = "127.0.0.1";
 		}
@@ -220,7 +246,7 @@ public class Utility {
 	}
 
 	/**
-	 *
+	 * 접근 IP 확인
 	 * @param request
 	 * @return
 	 */
@@ -286,6 +312,15 @@ public class Utility {
 	public static String decStringByJasypt(String encString) {
 		JasyptConfig jasyptConfig = new JasyptConfig();
 		return jasyptConfig.stringEncryptor().decrypt(encString);
+	}
+
+	/**
+	 * HTML 태그 제거
+	 * @param html
+	 * @return
+	 */
+	public static String removeHtmlTag(String html) {
+		return html.replaceAll("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", "");
 	}
 
 }

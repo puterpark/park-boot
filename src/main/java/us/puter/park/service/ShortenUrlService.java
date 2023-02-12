@@ -1,12 +1,19 @@
 package us.puter.park.service;
 
 import lombok.RequiredArgsConstructor;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import us.puter.park.domain.entity.ShortenUrl;
 import us.puter.park.domain.entity.ShortenUrlInfo;
 import us.puter.park.repository.ShortenUrlInfoRepository;
 import us.puter.park.repository.ShortenUrlRepository;
+import us.puter.park.service.dto.ShortenUrlDto;
+import us.puter.park.util.Utility;
+
+import java.util.Calendar;
+import java.util.List;
 
 @Service
 @Transactional
@@ -51,28 +58,74 @@ public class ShortenUrlService {
 	}
 
 	/**
-	 * shortenUrl의 일자별 redirect 수 저장
+	 * shortenUrl의 접근 기록 저장
 	 *
 	 * @param shortenUrlInfo
 	 * @return
 	 */
 	public void doInsertShortenUrlInfo(ShortenUrlInfo shortenUrlInfo) {
 
-		Long shortenUrlUid = shortenUrlInfo.getShortenUrlUid();
-		Long regDate = shortenUrlInfo.getRegDate();
+		shortenUrlInfoRepository.save(shortenUrlInfo);
+	}
 
-		// 값 존재 여부 확인
-		ShortenUrlInfo orgShortenUrlInfo = shortenUrlInfoRepository.findShortenUrlInfosByShortenUrlUidAndRegDate(shortenUrlUid, regDate);
+	/**
+	 * 입력한 시간 이후의 접근 기록 횟수 추출
+	 * @param date
+	 * @return
+	 */
+	public Long getRedirectCountByRegDate(Long date) {
 
-		if (orgShortenUrlInfo == null) {
-			// 새로 insert
-			shortenUrlInfoRepository.save(shortenUrlInfo);
-		} else {
-			// redirectCount의 값만 바꾼다.
-			Long redirectCount = orgShortenUrlInfo.getRedirectCount();
-			orgShortenUrlInfo.setRedirectCount(++redirectCount);
-			shortenUrlInfoRepository.save(orgShortenUrlInfo);
+		Long count = shortenUrlInfoRepository.countByRegDateGreaterThanEqual(Utility.getHourOfToday(date));
+		return count == null ? 0L : count;
+	}
+
+	/**
+	 * 현재날짜에서 day만큼 뺀 날짜부터 접근 기록 수가 가장 많은 상위 5개 shortenUrl 조회
+	 * @param day
+	 * @return
+	 */
+	public List<ShortenUrlDto> getShortenUrlListTop5(int day) {
+
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, day);
+		return shortenUrlRepository.findShortenUrlListTop5(Utility.getHourOfToday(cal.getTimeInMillis()));
+	}
+
+	/**
+	 * 도표 사용을 위한 List&lt;ShortenUrlDto&gt; → JsonString 변환
+	 * @param list
+	 * @return
+	 */
+	public String toJsonStringForChart(List<ShortenUrlDto> list) {
+
+		JSONArray jsonArr = new JSONArray();
+
+		for (ShortenUrlDto dto : list) {
+			JSONObject jsonObj = new JSONObject();
+			jsonObj.put("x", dto.getShortenUri());
+			jsonObj.put("y", dto.getRedirectCount());
+			jsonArr.add(jsonObj);
 		}
+
+		return jsonArr.toJSONString();
+	}
+
+	/**
+	 * 입력한 시간 이후의 가장 접근을 많이한 IP 추출
+	 * @param date
+	 * @return
+	 */
+	public String getMostAccessIp(Long date) {
+
+		String mostAccessIp = "x.x.x.x";
+
+		ShortenUrlDto shortenUrlDto = shortenUrlRepository.findMostAccessIp(Utility.getHourOfToday(date));
+
+		if (shortenUrlDto != null) {
+			mostAccessIp = shortenUrlDto.getAccessIp();
+		}
+
+		return mostAccessIp;
 	}
 
 }
