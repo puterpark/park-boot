@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "chat")
@@ -26,10 +27,10 @@ public class Chat {
 	private String msg;
 
 	@Column(name = "regDate")
-	private Long regDate;
+	private LocalDateTime regDate;
 
 	@Builder
-	public Chat(String nickname, String msg, Long regDate) {
+	public Chat(String nickname, String msg, LocalDateTime regDate) {
 		this.nickname = nickname;
 		this.msg = msg;
 		this.regDate = regDate;

@@ -13,6 +13,8 @@ import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.net.Socket;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -72,11 +74,11 @@ public class WebSocketController extends Socket {
 	 * @param mode 0:공지용, 1:그외
 	 */
 	private void broadCast(String msg, String nickname, int mode) {
-		long currentTime = Utility.getTimeMillis();
+		LocalDateTime currentTime = LocalDateTime.now();
 
 		for (String key : SESSION_MAP.keySet()) {
 			try {
-				SESSION_MAP.get(key).getBasicRemote().sendText("<span class='badge badge-dark'>" + Utility.getTimeHHMMSS(currentTime) + "</span> " + msg + "|#|" + SESSION_MAP.size() + "|#|" + nickname);
+				SESSION_MAP.get(key).getBasicRemote().sendText("<span class='badge badge-dark'>" + currentTime.format(DateTimeFormatter.ofPattern("HH:mm:ss")) + "</span> " + msg + "|#|" + SESSION_MAP.size() + "|#|" + nickname);
 			} catch (IOException e) {
 				log.error("webSocket error occurred.", e);
 			}

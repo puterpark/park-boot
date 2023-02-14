@@ -7,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "task")
@@ -31,13 +32,13 @@ public class Task {
 	private Long isAlive;
 
 	@Column(name = "startDate")
-	private Long startDate;
+	private LocalDateTime startDate;
 
 	@Column(name = "endDate")
-	private Long endDate;
+	private LocalDateTime endDate;
 
 	@Builder
-	public Task(String taskName, Long isUse, Long isAlive, Long startDate, Long endDate) {
+	public Task(String taskName, Long isUse, Long isAlive, LocalDateTime startDate, LocalDateTime endDate) {
 		this.taskName = taskName;
 		this.isUse = isUse;
 		this.isAlive = isAlive;
