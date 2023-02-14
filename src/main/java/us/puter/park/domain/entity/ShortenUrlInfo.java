@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "shortenurl_info")
@@ -30,10 +31,10 @@ public class ShortenUrlInfo {
 	private String ipInfo;
 
 	@Column(name = "regDate")
-	private Long regDate;
+	private LocalDateTime regDate;
 
 	@Builder
-	public ShortenUrlInfo(ShortenUrl shortenUrl, String accessIp, String ipInfo, Long regDate) {
+	public ShortenUrlInfo(ShortenUrl shortenUrl, String accessIp, String ipInfo, LocalDateTime regDate) {
 		this.shortenUrl = shortenUrl;
 		this.accessIp = accessIp;
 		this.ipInfo = ipInfo;

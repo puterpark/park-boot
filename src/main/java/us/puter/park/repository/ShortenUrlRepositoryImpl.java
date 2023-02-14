@@ -7,6 +7,7 @@ import us.puter.park.domain.entity.QShortenUrl;
 import us.puter.park.domain.entity.QShortenUrlInfo;
 import us.puter.park.service.dto.ShortenUrlDto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -15,7 +16,7 @@ public class ShortenUrlRepositoryImpl implements ShortenUrlRepositoryCustom {
 	private final JPAQueryFactory jpaQueryFactory;
 
 	@Override
-	public List<ShortenUrlDto> findShortenUrlListTop5(Long date) {
+	public List<ShortenUrlDto> findShortenUrlListTop5(LocalDateTime date) {
 
 		QShortenUrl shortenUrl = QShortenUrl.shortenUrl;
 		QShortenUrlInfo shortenUrlInfo = QShortenUrlInfo.shortenUrlInfo;
@@ -38,7 +39,7 @@ public class ShortenUrlRepositoryImpl implements ShortenUrlRepositoryCustom {
 	}
 
 	@Override
-	public ShortenUrlDto findMostAccessIp(Long date) {
+	public ShortenUrlDto findMostAccessIp(LocalDateTime date) {
 
 		QShortenUrlInfo shortenUrlInfo = QShortenUrlInfo.shortenUrlInfo;
 
