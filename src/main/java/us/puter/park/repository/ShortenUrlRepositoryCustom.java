@@ -2,6 +2,7 @@ package us.puter.park.repository;
 
 import us.puter.park.service.dto.ShortenUrlDto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ShortenUrlRepositoryCustom {
@@ -11,13 +12,13 @@ public interface ShortenUrlRepositoryCustom {
 	 * @param date
 	 * @return
 	 */
-	List<ShortenUrlDto> findShortenUrlListTop5(Long date);
+	List<ShortenUrlDto> findShortenUrlListTop5(LocalDateTime date);
 
 	/**
 	 * date 이후의 가장 많이 접근한 IP 조회
 	 * @param date
 	 * @return
 	 */
-	ShortenUrlDto findMostAccessIp(Long date);
+	ShortenUrlDto findMostAccessIp(LocalDateTime date);
 
 }

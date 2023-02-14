@@ -20,6 +20,7 @@ import us.puter.park.util.Utility;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -62,7 +63,7 @@ public class ShortenUrlController {
 					.shortenUrl(shortenUrl)
 					.accessIp(ip)
 					.ipInfo(ipInfo)
-					.regDate(Utility.getTimeMillis())
+					.regDate(LocalDateTime.now())
 					.build();
 			// 해당 shortenUrl의 일자별 접근 기록 저장
 			shortenUrlService.doInsertShortenUrlInfo(shortenUrlInfo);
@@ -107,7 +108,7 @@ public class ShortenUrlController {
 			urlInfo = ShortenUrl.builder()
 						.originalUrl(originalUrl)
 						.shortenUri(shortenUri)
-						.regDate(Utility.getTimeMillis())
+						.regDate(LocalDateTime.now())
 						.build();
 
 			shortenUrlService.doInsertShortenUrl(urlInfo);

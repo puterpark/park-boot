@@ -10,9 +10,9 @@ import us.puter.park.domain.entity.ShortenUrlInfo;
 import us.puter.park.repository.ShortenUrlInfoRepository;
 import us.puter.park.repository.ShortenUrlRepository;
 import us.puter.park.service.dto.ShortenUrlDto;
-import us.puter.park.util.Utility;
 
-import java.util.Calendar;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -75,7 +75,7 @@ public class ShortenUrlService {
 	 */
 	public Long getRedirectCountByRegDate(Long date) {
 
-		Long count = shortenUrlInfoRepository.countByRegDateGreaterThanEqual(Utility.getHourOfToday(date));
+		Long count = shortenUrlInfoRepository.countByRegDateGreaterThanEqual(LocalDate.now().atStartOfDay());
 		return count == null ? 0L : count;
 	}
 
@@ -86,9 +86,9 @@ public class ShortenUrlService {
 	 */
 	public List<ShortenUrlDto> getShortenUrlListTop5(int day) {
 
-		Calendar cal = Calendar.getInstance();
-		cal.add(Calendar.DATE, day);
-		return shortenUrlRepository.findShortenUrlListTop5(Utility.getHourOfToday(cal.getTimeInMillis()));
+		LocalDateTime ldt = LocalDate.now().atStartOfDay();
+		ldt = ldt.plusDays(day);
+		return shortenUrlRepository.findShortenUrlListTop5(ldt);
 	}
 
 	/**
@@ -119,7 +119,7 @@ public class ShortenUrlService {
 
 		String mostAccessIp = "x.x.x.x";
 
-		ShortenUrlDto shortenUrlDto = shortenUrlRepository.findMostAccessIp(Utility.getHourOfToday(date));
+		ShortenUrlDto shortenUrlDto = shortenUrlRepository.findMostAccessIp(LocalDate.now().atStartOfDay());
 
 		if (shortenUrlDto != null) {
 			mostAccessIp = shortenUrlDto.getAccessIp();

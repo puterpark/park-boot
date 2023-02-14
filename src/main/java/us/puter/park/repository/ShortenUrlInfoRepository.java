@@ -3,6 +3,8 @@ package us.puter.park.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import us.puter.park.domain.entity.ShortenUrlInfo;
 
+import java.time.LocalDateTime;
+
 public interface ShortenUrlInfoRepository extends JpaRepository<ShortenUrlInfo, Long> {
 
 	/**
@@ -10,6 +12,6 @@ public interface ShortenUrlInfoRepository extends JpaRepository<ShortenUrlInfo, 
 	 * @param regDate
 	 * @return
 	 */
-	Long countByRegDateGreaterThanEqual(Long regDate);
+	Long countByRegDateGreaterThanEqual(LocalDateTime regDate);
 
 }

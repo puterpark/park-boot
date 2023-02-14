@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import us.puter.park.domain.entity.Task;
 import us.puter.park.repository.TaskRepository;
-import us.puter.park.util.Utility;
+
+import java.time.LocalDateTime;
 
 @Service
 @Transactional
@@ -51,7 +52,7 @@ public class TaskService {
 	 * @param task
 	 * @param startDate
 	 */
-	public void startTask(Task task, Long startDate) {
+	public void startTask(Task task, LocalDateTime startDate) {
 		task.setStartDate(startDate);
 		task.setIsAlive(1L);
 		taskRepository.save(task);
@@ -62,7 +63,7 @@ public class TaskService {
 	 * @param task
 	 * @param endDate
 	 */
-	public void endTask(Task task, Long endDate) {
+	public void endTask(Task task, LocalDateTime endDate) {
 		task.setEndDate(endDate);
 		task.setIsAlive(0L);
 		taskRepository.save(task);
@@ -74,7 +75,7 @@ public class TaskService {
 	 * @return
 	 */
 	public Task initTask(String taskName) {
-		Long startDate = Utility.getTimeMillis();
+		LocalDateTime startDate = LocalDateTime.now();
 
 		// 스케줄러 존재 확인
 		boolean existsTask = existsTaskByTaskName(taskName);
@@ -89,8 +90,8 @@ public class TaskService {
 					.taskName(taskName)
 					.isUse(1L)
 					.isAlive(0L)
-					.startDate(0L)
-					.endDate(0L)
+					.startDate(LocalDateTime.of(1970, 1, 1, 9, 0))
+					.endDate(LocalDateTime.of(1970, 1, 1, 9, 0))
 					.build();
 			insertTask(task);
 		}
