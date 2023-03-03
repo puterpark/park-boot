@@ -21,7 +21,7 @@
 			</div>
 			<ul class="nav flex-column custom-scrollbar" id="sidenav" data-children=".nav-item">
 				<li class="subheader">
-					<span id="requestIP">접속 IP : </span>
+					<span>접속 IP : ${ip}</span>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link ripple ${mode eq 'home' ? 'active' : ''}" href="/" data-url="/">
