@@ -27,6 +27,7 @@ public class IndexController {
 
 		model.addAttribute("title", title);
 		model.addAttribute("mode", "home");
+		model.addAttribute("ip", req.getRemoteAddr());
 
 		// 메뉴 설정
 		menuService.setModelFromMenu(model, null);

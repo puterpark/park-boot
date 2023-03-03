@@ -69,18 +69,6 @@
 	<script type="text/javascript" src="/resources/js/loader${useMin}.js"></script>
 	<!-- / JAVASCRIPT -->
 
-	<script>
-		$(function() {
-			$.ajax({
-				url: "https://api.ipify.org?format=json"
-			}).done(function(data) {
-				$("#requestIP").append(data.ip);
-			}).fail(function() {
-				$("#requestIP").append('error');
-			});
-		});
-	</script>
-	
 	<style>
 		.hidden {
 			display: none !important;
