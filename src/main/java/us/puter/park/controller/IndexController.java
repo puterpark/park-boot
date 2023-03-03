@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import us.puter.park.service.MenuService;
+import us.puter.park.util.Utility;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,7 @@ public class IndexController {
 
 		model.addAttribute("title", title);
 		model.addAttribute("mode", "home");
+		model.addAttribute("ip", Utility.getRemoteIP(req));
 
 		// 메뉴 설정
 		menuService.setModelFromMenu(model, null);
